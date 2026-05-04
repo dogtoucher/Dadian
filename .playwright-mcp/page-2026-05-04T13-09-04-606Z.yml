@@ -1,0 +1,2252 @@
+- generic [ref=e1]:
+  - link "跳至内容" [ref=e3] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=e7]:
+    - generic [ref=e9]:
+      - navigation "边栏":
+        - generic:
+          - generic:
+            - generic:
+              - button "打开边栏":
+                - img
+        - generic:
+          - generic:
+            - link "新聊天":
+              - /url: /
+              - generic:
+                - img
+              - generic: 新聊天
+          - generic:
+            - generic:
+              - generic:
+                - img
+              - generic: 搜索聊天
+          - generic:
+            - link "图片":
+              - /url: /images
+              - generic:
+                - img
+              - generic: 图片
+        - generic:
+          - generic:
+            - button "打开“个人资料”菜单":
+              - generic:
+                - generic:
+                  - img
+      - generic [ref=e10]:
+        - heading "历史聊天记录" [level=2] [ref=e11]
+        - navigation "历史聊天记录" [ref=e13]:
+          - generic [ref=e16]:
+            - link "主页" [ref=e17] [cursor=pointer]:
+              - /url: /
+              - img [ref=e18]
+            - button "关闭边栏" [expanded] [ref=e21]:
+              - img [ref=e22]
+          - list [ref=e25]:
+            - listitem [ref=e26]:
+              - link "新聊天 Shift 命令 O" [ref=e27] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e28]:
+                  - img [ref=e30]
+                  - generic [ref=e33]: 新聊天
+                - generic [ref=e35]:
+                  - generic "Shift" [ref=e36]:
+                    - generic [ref=e37]: ⇧
+                  - generic "命令" [ref=e38]:
+                    - generic [ref=e39]: ⌘
+                  - generic [ref=e41]: O
+            - listitem [ref=e42]:
+              - generic [ref=e43] [cursor=pointer]:
+                - generic [ref=e44]:
+                  - img [ref=e46]
+                  - generic [ref=e49]: 搜索聊天
+                - generic [ref=e51]:
+                  - generic "命令" [ref=e52]:
+                    - generic [ref=e53]: ⌘
+                  - generic [ref=e55]: K
+          - link "图片" [ref=e56] [cursor=pointer]:
+            - /url: /images
+            - img [ref=e58]
+            - generic [ref=e61]: 图片
+          - generic [ref=e62]:
+            - link "应用" [ref=e63] [cursor=pointer]:
+              - /url: /apps
+              - img [ref=e65]
+              - generic [ref=e68]: 应用
+            - generic [ref=e69] [cursor=pointer]:
+              - img [ref=e71]
+              - generic [ref=e74]: 深度研究
+          - generic [ref=e76]:
+            - link "查看套餐和定价" [ref=e77] [cursor=pointer]:
+              - /url: https://openai.com/chatgpt/pricing/
+              - generic [ref=e78]:
+                - img [ref=e80]
+                - text: 查看套餐和定价
+              - img [ref=e83]
+            - generic [ref=e85] [cursor=pointer]:
+              - img [ref=e87]
+              - text: 设置
+            - generic [ref=e89] [cursor=pointer]:
+              - generic [ref=e90]:
+                - img [ref=e92]
+                - generic [ref=e95]: 帮助
+              - img [ref=e97]
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - paragraph [ref=e101]: 获取为你量身定制的回复
+              - paragraph [ref=e102]: 登录以获取基于已保存聊天的回答，并可创建图片和上传文件。
+            - button "登录" [ref=e104] [cursor=pointer]:
+              - generic [ref=e105]: 登录
+    - generic [ref=e107]:
+      - banner:
+        - button "模型选择器" [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: ChatGPT
+            - img [ref=e112]
+        - generic [ref=e118]:
+          - button "登录" [ref=e119] [cursor=pointer]:
+            - generic [ref=e121]: 登录
+          - button "免费注册" [ref=e122] [cursor=pointer]:
+            - generic [ref=e123]: 免费注册
+      - main [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e127]:
+            - paragraph [ref=e129]: 这是 ChatGPT 与匿名用户之间的对话副本。
+            - button "举报对话" [ref=e131] [cursor=pointer]
+            - generic [ref=e132]:
+              - heading "你说：" [level=4] [ref=e133]
+              - generic [ref=e140]: 帮我查询一个网站flipbook.page
+            - generic [ref=e142]:
+              - heading "ChatGPT 说：" [level=4] [ref=e143]
+              - generic [ref=e145]:
+                - generic [ref=e146]:
+                  - paragraph [ref=e150]: 我先查这个域名的公开信息和页面内容，判断它是什么网站、是否可访问，以及是否有明显风险或用途。
+                  - button "已思考 6s" [ref=e152] [cursor=pointer]:
+                    - text: 已思考 6s
+                    - img [ref=e153]
+                  - generic [ref=e157]:
+                    - heading "查询结果：flipbook.page 是什么" [level=2] [ref=e158]
+                    - paragraph [ref=e159]:
+                      - strong [ref=e160]: flipbook.page
+                      - text: 是一个近期出现的 AI 原型网站，主打概念是
+                      - strong [ref=e161]: “infinite visual browser / 无限视觉浏览器”
+                      - text: 。它不是传统的 PDF 翻页工具，而是一个用生成式 AI 实时生成页面图像的实验性界面。
+                    - paragraph [ref=e162]:
+                      - text: 官网描述为：
+                      - strong [ref=e163]: “Flipbook is an infinite visual browser generated entirely on demand in real time.”
+                      - text: 每个页面都是一张图像，用户点击图像中的任意区域后，系统会生成下一张相关页面。
+                      - link "Flipbook +1" [ref=e166] [cursor=pointer]:
+                        - /url: https://flipbook.page/?utm_source=chatgpt.com
+                        - generic [ref=e168]:
+                          - generic [ref=e169]: Flipbook
+                          - generic [ref=e170]: "+1"
+                    - heading "关键信息" [level=2] [ref=e171]
+                    - generic [ref=e173]:
+                      - table [ref=e174]:
+                        - rowgroup [ref=e175]:
+                          - row "项目 结果" [ref=e176]:
+                            - columnheader "项目" [ref=e177]
+                            - columnheader "结果" [ref=e178]
+                        - rowgroup [ref=e179]:
+                          - row "网站 flipbook.page" [ref=e180]:
+                            - cell "网站" [ref=e181]
+                            - cell "flipbook.page" [ref=e182]:
+                              - code [ref=e183]: flipbook.page
+                          - row "类型 AI 生成式视觉浏览器原型" [ref=e184]:
+                            - cell "类型" [ref=e185]
+                            - cell "AI 生成式视觉浏览器原型" [ref=e186]
+                          - row "创建者 Zain Shah、Eddie Jiao、Drew Carr" [ref=e187]:
+                            - cell "创建者" [ref=e188]
+                            - cell "Zain Shah、Eddie Jiao、Drew Carr" [ref=e189]
+                          - row "核心机制 页面不是 HTML 结构，而是由模型实时生成的图像/像素" [ref=e190]:
+                            - cell "核心机制" [ref=e191]
+                            - cell "页面不是 HTML 结构，而是由模型实时生成的图像/像素" [ref=e192]
+                          - row "交互方式 点击页面任意区域，生成下一页并继续探索" [ref=e193]:
+                            - cell "交互方式" [ref=e194]
+                            - cell "点击页面任意区域，生成下一页并继续探索" [ref=e195]
+                          - row "适合用途 视觉解释、概念探索、学习型浏览、生成式 UI 实验" [ref=e196]:
+                            - cell "适合用途" [ref=e197]
+                            - cell "视觉解释、概念探索、学习型浏览、生成式 UI 实验" [ref=e198]
+                          - row "当前状态 实验性原型，可能较慢、结果不稳定、存在幻觉" [ref=e199]:
+                            - cell "当前状态" [ref=e200]
+                            - cell "实验性原型，可能较慢、结果不稳定、存在幻觉" [ref=e201]
+                      - generic [ref=e203]:
+                        - button "复制表格":
+                          - img
+                    - heading "它和普通 flipbook 工具不同" [level=2] [ref=e204]
+                    - paragraph [ref=e205]:
+                      - text: 不要把它和
+                      - strong [ref=e206]: PDF 转翻页书
+                      - text: 工具混淆。像 Heyzine、FlipHTML5、Flipsnack、FlippingBook 这类服务主要是把 PDF、PPT、图片转成带翻页动画的电子书。
+                      - link "Heyzine +2 fliphtml5.com +2" [ref=e209] [cursor=pointer]:
+                        - /url: https://heyzine.com/?utm_source=chatgpt.com
+                        - generic [ref=e210]:
+                          - generic [ref=e211]:
+                            - generic [ref=e212]: Heyzine
+                            - generic [ref=e213]: "+2"
+                          - generic [ref=e214]:
+                            - generic [ref=e215]: fliphtml5.com
+                            - generic [ref=e216]: "+2"
+                    - paragraph [ref=e217]:
+                      - strong [ref=e218]: flipbook.page 更像是：
+                    - blockquote [ref=e219]:
+                      - paragraph [ref=e220]: 用 AI 实时画出一个可点击的“知识页面”，然后根据你的点击继续生成下一页。
+                    - paragraph [ref=e221]:
+                      - text: Fast Company 最近也报道了它，称它受到 Apple HyperCard 的启发，用户点击页面中的区域后，系统会继续生成更深入的图像和文本内容。
+                      - link "Fast Company" [ref=e224] [cursor=pointer]:
+                        - /url: https://www.fastcompany.com/91532926/flipbook-animated-browser-inspired-by-apple-hypercard?utm_source=chatgpt.com
+                        - generic [ref=e227]: Fast Company
+                    - heading "技术/产品意义" [level=2] [ref=e228]
+                    - paragraph [ref=e229]:
+                      - text: 这个网站展示的是一种
+                      - strong [ref=e230]: Generative UI（生成式用户界面）
+                      - text: 思路：
+                    - list [ref=e231]:
+                      - listitem [ref=e232]:
+                        - paragraph [ref=e233]: 传统网页：HTML + CSS + JavaScript → 浏览器渲染界面；
+                      - listitem [ref=e234]:
+                        - paragraph [ref=e235]: Flipbook：模型直接生成屏幕上的视觉结果；
+                      - listitem [ref=e236]:
+                        - paragraph [ref=e237]: 文本、按钮、图像都可能只是图像中的像素；
+                      - listitem [ref=e238]:
+                        - paragraph [ref=e239]: 点击行为被解释为新的意图，再触发下一次生成。
+                    - paragraph [ref=e240]:
+                      - text: 一些公开讨论称它目前仍然“slow / clunky”，但作为生成式界面方向的早期实验比较有参考价值。
+                      - link "LinkedIn" [ref=e243] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/posts/rholmes84_shopifys-ceo-shared-this-as-a-glimpse-of-activity-7454179882818850816-WcVv?utm_source=chatgpt.com
+                        - generic [ref=e246]: LinkedIn
+                    - heading "风险与注意事项" [level=2] [ref=e247]
+                    - paragraph [ref=e248]: 使用时建议注意：
+                    - list [ref=e249]:
+                      - listitem [ref=e250]:
+                        - paragraph [ref=e251]:
+                          - strong [ref=e252]: 不要输入隐私信息
+                          - text: 这是实验性 AI 网站，避免输入身份证件、账号、商业机密、私人文档等内容。
+                      - listitem [ref=e253]:
+                        - paragraph [ref=e254]:
+                          - strong [ref=e255]: 结果不能当作可靠事实来源
+                          - text: 生成式页面可能包含幻觉，尤其是涉及事实、数据、引用、专业知识时。
+                      - listitem [ref=e256]:
+                        - paragraph [ref=e257]:
+                          - strong [ref=e258]: 它不是生产级工具
+                          - text: 更适合体验 AI 交互界面，而不是用于严肃研究、法律、医学、财务决策。
+                      - listitem [ref=e259]:
+                        - paragraph [ref=e260]:
+                          - strong [ref=e261]: 页面内容可能难以复制或检索
+                          - text: 因为许多内容是图像像素，不是标准网页文本。
+                    - heading "简短结论" [level=2] [ref=e262]
+                    - paragraph [ref=e263]:
+                      - strong [ref=e264]: flipbook.page 是一个 AI 生成式视觉浏览器实验项目，不是普通电子翻页书网站。
+                      - text: 它的价值主要在于展示未来 AI-native interface 的可能性：界面不再预先写死，而是根据用户意图实时生成。
+                - button "来源" [ref=e265] [cursor=pointer]:
+                  - generic [ref=e273]: 来源
+            - generic [ref=e275]:
+              - heading "你说：" [level=4] [ref=e276]
+              - generic [ref=e283]: 我想做一个类似的但是纯文字生成的架空世界wiki类型的domo你觉得可以吗
+            - generic [ref=e285]:
+              - heading "ChatGPT 说：" [level=4] [ref=e286]
+              - generic [ref=e289]:
+                - button "已思考若干秒" [ref=e291] [cursor=pointer]:
+                  - text: 已思考若干秒
+                  - img [ref=e292]
+                - generic [ref=e296]:
+                  - paragraph [ref=e297]:
+                    - text: 可以，而且我觉得
+                    - strong [ref=e298]: 比 flipbook.page 那种纯视觉生成更容易做成可用产品
+                    - text: 。
+                  - paragraph [ref=e299]: 你这个想法可以理解为：
+                  - blockquote [ref=e300]:
+                    - paragraph [ref=e301]:
+                      - text: 一个由 LLM 实时生成、可点击探索、不断扩展的「架空世界 Wiki」demo。
+                      - text: 用户不是搜索已有条目，而是在探索一个被 AI 即时生成、但又保持内部一致性的虚构世界。
+                  - heading "核心概念" [level=2] [ref=e302]
+                  - paragraph [ref=e303]: 可以做成类似：
+                  - list [ref=e304]:
+                    - listitem [ref=e305]:
+                      - paragraph [ref=e306]: 首页展示一个世界概览；
+                    - listitem [ref=e307]:
+                      - paragraph [ref=e308]: 页面里有很多可点击的词条；
+                    - listitem [ref=e309]:
+                      - paragraph [ref=e310]: 点击“北境王国”“灰烬纪元”“机械神教”“第七次月蚀战争”等条目；
+                    - listitem [ref=e311]:
+                      - paragraph [ref=e312]: 系统即时生成对应 wiki 页面；
+                    - listitem [ref=e313]:
+                      - paragraph [ref=e314]: 页面里继续出现新的可点击概念；
+                    - listitem [ref=e315]:
+                      - paragraph [ref=e316]: 用户不断深入，像浏览 Wikipedia 一样探索一个不存在的世界。
+                  - paragraph [ref=e317]:
+                    - text: 它和普通 AI 写故事的区别是：
+                    - strong [ref=e318]: 它不是线性叙事，而是知识网络。
+                  - separator [ref=e319]
+                  - heading "为什么这个方向可行" [level=2] [ref=e320]
+                  - heading "1. 纯文字比图像生成稳定" [level=3] [ref=e321]
+                  - paragraph [ref=e322]: flipbook.page 的问题是：
+                  - list [ref=e323]:
+                    - listitem [ref=e324]:
+                      - paragraph [ref=e325]: 图像生成慢；
+                    - listitem [ref=e326]:
+                      - paragraph [ref=e327]: 文字可能失真；
+                    - listitem [ref=e328]:
+                      - paragraph [ref=e329]: 内容不可复制；
+                    - listitem [ref=e330]:
+                      - paragraph [ref=e331]: 很难维护结构；
+                    - listitem [ref=e332]:
+                      - paragraph [ref=e333]: 难以保证前后设定一致。
+                  - paragraph [ref=e334]: 你的纯文字 wiki 可以避免这些问题。
+                  - heading "2. Wiki 结构非常适合 LLM" [level=3] [ref=e335]
+                  - paragraph [ref=e336]: LLM 很擅长生成：
+                  - list [ref=e337]:
+                    - listitem [ref=e338]:
+                      - paragraph [ref=e339]: 人物条目；
+                    - listitem [ref=e340]:
+                      - paragraph [ref=e341]: 地名条目；
+                    - listitem [ref=e342]:
+                      - paragraph [ref=e343]: 历史事件；
+                    - listitem [ref=e344]:
+                      - paragraph [ref=e345]: 宗教体系；
+                    - listitem [ref=e346]:
+                      - paragraph [ref=e347]: 王朝谱系；
+                    - listitem [ref=e348]:
+                      - paragraph [ref=e349]: 魔法规则；
+                    - listitem [ref=e350]:
+                      - paragraph [ref=e351]: 科技设定；
+                    - listitem [ref=e352]:
+                      - paragraph [ref=e353]: 年代表；
+                    - listitem [ref=e354]:
+                      - paragraph [ref=e355]: 势力关系；
+                    - listitem [ref=e356]:
+                      - paragraph [ref=e357]: 神话传说；
+                    - listitem [ref=e358]:
+                      - paragraph [ref=e359]: 术语解释。
+                  - paragraph [ref=e360]: 这些天然适合 wiki 风格。
+                  - heading "3. 可以从 demo 逐步扩展成产品" [level=3] [ref=e361]
+                  - paragraph [ref=e362]: 最小 demo 不难：
+                  - list [ref=e363]:
+                    - listitem [ref=e364]:
+                      - paragraph [ref=e365]: 用户输入一个世界种子设定；
+                    - listitem [ref=e366]:
+                      - paragraph [ref=e367]: 生成世界首页；
+                    - listitem [ref=e368]:
+                      - paragraph [ref=e369]: 自动抽取页面中的可点击实体；
+                    - listitem [ref=e370]:
+                      - paragraph [ref=e371]: 点击实体后生成新页面；
+                    - listitem [ref=e372]:
+                      - paragraph [ref=e373]: 把生成过的页面保存起来；
+                    - listitem [ref=e374]:
+                      - paragraph [ref=e375]: 后续生成时参考已有设定，保持一致。
+                  - separator [ref=e376]
+                  - heading "关键设计点" [level=2] [ref=e377]
+                  - heading "1. 不要每次都随机生成" [level=3] [ref=e378]
+                  - paragraph [ref=e379]:
+                    - text: 你需要一个
+                    - strong [ref=e380]: world state / canon database
+                    - text: 。
+                  - paragraph [ref=e381]: 例如保存：
+                  - generic [ref=e389]:
+                    - generic [ref=e391]:
+                      - generic [ref=e392]:
+                        - img [ref=e393]
+                        - text: JSON
+                      - button "复制" [ref=e396] [cursor=pointer]:
+                        - img [ref=e397]
+                    - code [ref=e405]:
+                      - text: "{"
+                      - text: "\"world_name\": \"Elyndor\","
+                      - text: "\"tone\": \"dark fantasy\","
+                      - text: "\"established_facts\": ["
+                      - text: "\"The Moon Empire collapsed 312 years ago.\","
+                      - text: "\"Magic is powered by fossilized dreams.\","
+                      - text: "\"The Church of Glass forbids artificial memory.\""
+                      - text: "],"
+                      - text: "\"articles\": {"
+                      - text: "\"Moon Empire\": \"...\","
+                      - text: "\"Church of Glass\": \"...\""
+                      - text: "}"
+                      - text: "}"
+                  - paragraph [ref=e406]: 每次生成新词条时，都要把相关已知设定喂给模型。
+                  - paragraph [ref=e407]: 否则会出现：
+                  - list [ref=e408]:
+                    - listitem [ref=e409]:
+                      - paragraph [ref=e410]: 同一个国家前后名字不同；
+                    - listitem [ref=e411]:
+                      - paragraph [ref=e412]: 时间线冲突；
+                    - listitem [ref=e413]:
+                      - paragraph [ref=e414]: 人物死而复生；
+                    - listitem [ref=e415]:
+                      - paragraph [ref=e416]: 魔法规则变化；
+                    - listitem [ref=e417]:
+                      - paragraph [ref=e418]: 地理关系混乱。
+                  - separator [ref=e419]
+                  - heading "2. 页面应该有固定模板" [level=3] [ref=e420]
+                  - paragraph [ref=e421]: 建议每个 wiki 页面用结构化格式生成，而不是自由散文。
+                  - paragraph [ref=e422]: 例如人物页面：
+                  - generic [ref=e430]:
+                    - generic [ref=e432]:
+                      - generic [ref=e433]:
+                        - img [ref=e434]
+                        - text: Markdown
+                      - button "复制" [ref=e437] [cursor=pointer]:
+                        - img [ref=e438]
+                    - code [ref=e446]:
+                      - text: "# Arven Sol"
+                      - text: "## Summary"
+                      - text: ...
+                      - text: "## Biography"
+                      - text: ...
+                      - text: "## Role in the World"
+                      - text: ...
+                      - text: "## Relationships"
+                      - text: ...
+                      - text: "## Related Articles"
+                      - text: "- [[Moon Empire]]"
+                      - text: "- [[Glass Cathedral]]"
+                      - text: "- [[War of Seven Ashes]]"
+                  - paragraph [ref=e447]: 地点页面：
+                  - generic [ref=e455]:
+                    - generic [ref=e457]:
+                      - generic [ref=e458]:
+                        - img [ref=e459]
+                        - text: Markdown
+                      - button "复制" [ref=e462] [cursor=pointer]:
+                        - img [ref=e463]
+                    - code [ref=e471]:
+                      - text: "# Glass Cathedral"
+                      - text: "## Overview"
+                      - text: ...
+                      - text: "## Geography"
+                      - text: ...
+                      - text: "## Political Importance"
+                      - text: ...
+                      - text: "## History"
+                      - text: ...
+                      - text: "## Known Figures"
+                      - text: ...
+                      - text: "## Related Articles"
+                      - text: "- [[Church of Glass]]"
+                      - text: "- [[Artificial Memory]]"
+                      - text: "- [[High Synod]]"
+                  - paragraph [ref=e472]: 这样可以让页面更像 wiki，也方便抽取链接。
+                  - separator [ref=e473]
+                  - heading "3. 链接系统是核心体验" [level=3] [ref=e474]
+                  - paragraph [ref=e475]:
+                    - text: 可以采用
+                    - code [ref=e476]: "[[Article Name]]"
+                    - text: 这种 wiki link 格式。
+                  - paragraph [ref=e477]: LLM 生成正文时，你要求它主动插入：
+                  - generic [ref=e485]:
+                    - generic [ref=e487]:
+                      - generic [ref=e488]:
+                        - img [ref=e489]
+                        - text: Markdown
+                      - button "复制" [ref=e492] [cursor=pointer]:
+                        - img [ref=e493]
+                    - code [ref=e501]: The city was founded after the [[War of Seven Ashes]] by exiles from the [[Moon Empire]].
+                  - paragraph [ref=e502]:
+                    - text: 前端把
+                    - code [ref=e503]: "[[...]]"
+                    - text: 渲染成可点击链接。
+                  - paragraph [ref=e504]: 点击后：
+                  - list [ref=e505]:
+                    - listitem [ref=e506]:
+                      - paragraph [ref=e507]: 如果页面存在：直接打开；
+                    - listitem [ref=e508]:
+                      - paragraph [ref=e509]: 如果不存在：调用 LLM 生成；
+                    - listitem [ref=e510]:
+                      - paragraph [ref=e511]: 生成后存入数据库。
+                  - paragraph [ref=e512]: 这就是你的核心 loop。
+                  - separator [ref=e513]
+                  - heading "MVP 功能建议" [level=2] [ref=e514]
+                  - paragraph [ref=e515]: 第一版 demo 不要太复杂。建议做成：
+                  - heading "MVP 版本" [level=3] [ref=e516]
+                  - generic [ref=e518]:
+                    - table [ref=e519]:
+                      - rowgroup [ref=e520]:
+                        - row "功能 是否需要" [ref=e521]:
+                          - columnheader "功能" [ref=e522]
+                          - columnheader "是否需要" [ref=e523]
+                      - rowgroup [ref=e524]:
+                        - row "输入世界种子设定 必须" [ref=e525]:
+                          - cell "输入世界种子设定" [ref=e526]
+                          - cell "必须" [ref=e527]
+                        - row "生成世界首页 必须" [ref=e528]:
+                          - cell "生成世界首页" [ref=e529]
+                          - cell "必须" [ref=e530]
+                        - row "点击 wiki link 生成新页面 必须" [ref=e531]:
+                          - cell "点击 wiki link 生成新页面" [ref=e532]
+                          - cell "必须" [ref=e533]
+                        - row "保存已生成页面 必须" [ref=e534]:
+                          - cell "保存已生成页面" [ref=e535]
+                          - cell "必须" [ref=e536]
+                        - row "搜索已有词条 推荐" [ref=e537]:
+                          - cell "搜索已有词条" [ref=e538]
+                          - cell "推荐" [ref=e539]
+                        - row "设定一致性检查 推荐" [ref=e540]:
+                          - cell "设定一致性检查" [ref=e541]
+                          - cell "推荐" [ref=e542]
+                        - row "用户编辑词条 第二阶段" [ref=e543]:
+                          - cell "用户编辑词条" [ref=e544]
+                          - cell "第二阶段" [ref=e545]
+                        - row "地图 / 时间线 / 关系图 第二阶段" [ref=e546]:
+                          - cell "地图 / 时间线 / 关系图" [ref=e547]
+                          - cell "第二阶段" [ref=e548]
+                        - row "多用户共创 后期" [ref=e549]:
+                          - cell "多用户共创" [ref=e550]
+                          - cell "后期" [ref=e551]
+                    - generic [ref=e553]:
+                      - button "复制表格":
+                        - img
+                  - separator [ref=e554]
+                  - heading "技术架构建议" [level=2] [ref=e555]
+                  - paragraph [ref=e556]: 你可以用比较轻的技术栈。
+                  - heading "前端" [level=3] [ref=e557]
+                  - list [ref=e558]:
+                    - listitem [ref=e559]:
+                      - paragraph [ref=e560]: Next.js / React；
+                    - listitem [ref=e561]:
+                      - paragraph [ref=e562]: Markdown renderer；
+                    - listitem [ref=e563]:
+                      - paragraph [ref=e564]: wiki link parser；
+                    - listitem [ref=e565]:
+                      - paragraph [ref=e566]: sidebar 显示已生成词条；
+                    - listitem [ref=e567]:
+                      - paragraph [ref=e568]: search box；
+                    - listitem [ref=e569]:
+                      - paragraph [ref=e570]: breadcrumb 或 history。
+                  - heading "后端" [level=3] [ref=e571]
+                  - list [ref=e572]:
+                    - listitem [ref=e573]:
+                      - paragraph [ref=e574]: FastAPI / Node.js API；
+                    - listitem [ref=e575]:
+                      - paragraph [ref=e576]: LLM 调用；
+                    - listitem [ref=e577]:
+                      - paragraph [ref=e578]: article generation pipeline；
+                    - listitem [ref=e579]:
+                      - paragraph [ref=e580]: consistency retrieval；
+                    - listitem [ref=e581]:
+                      - paragraph [ref=e582]: database。
+                  - heading "数据库" [level=3] [ref=e583]
+                  - paragraph [ref=e584]: 最简单：
+                  - list [ref=e585]:
+                    - listitem [ref=e586]:
+                      - paragraph [ref=e587]: SQLite；
+                    - listitem [ref=e588]:
+                      - paragraph [ref=e589]: PostgreSQL；
+                    - listitem [ref=e590]:
+                      - paragraph [ref=e591]: 或者本地 JSON 文件也可以先做 demo。
+                  - paragraph [ref=e592]: 建议的数据结构：
+                  - generic [ref=e600]:
+                    - generic [ref=e602]:
+                      - generic [ref=e603]:
+                        - img [ref=e604]
+                        - text: SQL
+                      - button "复制" [ref=e607] [cursor=pointer]:
+                        - img [ref=e608]
+                    - code [ref=e616]:
+                      - text: articles (
+                      - text: id,
+                      - text: world_id,
+                      - text: title,
+                      - text: type,
+                      - text: content_markdown,
+                      - text: summary,
+                      - text: outgoing_links,
+                      - text: created_at,
+                      - text: updated_at
+                      - text: )
+                      - text: worlds (
+                      - text: id,
+                      - text: name,
+                      - text: seed_prompt,
+                      - text: style,
+                      - text: canon_summary,
+                      - text: created_at
+                      - text: )
+                  - paragraph [ref=e617]: 如果你想更进一步，可以加向量检索：
+                  - generic [ref=e625]:
+                    - generic [ref=e627]:
+                      - generic [ref=e628]:
+                        - img [ref=e629]
+                        - text: SQL
+                      - button "复制" [ref=e632] [cursor=pointer]:
+                        - img [ref=e633]
+                    - code [ref=e641]:
+                      - text: article_embeddings (
+                      - text: article_id,
+                      - text: embedding
+                      - text: )
+                  - paragraph [ref=e642]: 这样生成新页面时可以检索相关旧词条。
+                  - separator [ref=e643]
+                  - heading "生成流程可以这样设计" [level=2] [ref=e644]
+                  - paragraph [ref=e645]:
+                    - text: 用户点击
+                    - code [ref=e646]: "[[Ashen Republic]]"
+                    - text: 时：
+                  - list [ref=e647]:
+                    - listitem [ref=e648]:
+                      - paragraph [ref=e649]:
+                        - text: 检查数据库是否已有
+                        - code [ref=e650]: Ashen Republic
+                        - text: ；
+                    - listitem [ref=e651]:
+                      - paragraph [ref=e652]: 没有则检索相关设定；
+                    - listitem [ref=e653]:
+                      - paragraph [ref=e654]: 构造 prompt；
+                    - listitem [ref=e655]:
+                      - paragraph [ref=e656]: 生成 Markdown wiki 页面；
+                    - listitem [ref=e657]:
+                      - paragraph [ref=e658]:
+                        - text: 抽取
+                        - code [ref=e659]: "[[...]]"
+                        - text: 链接；
+                    - listitem [ref=e660]:
+                      - paragraph [ref=e661]: 保存页面；
+                    - listitem [ref=e662]:
+                      - paragraph [ref=e663]: 返回前端渲染。
+                  - paragraph [ref=e664]: 伪代码：
+                  - generic [ref=e672]:
+                    - generic [ref=e674]:
+                      - generic [ref=e675]:
+                        - img [ref=e676]
+                        - text: Python
+                      - button "复制" [ref=e679] [cursor=pointer]:
+                        - img [ref=e680]
+                    - code [ref=e688]:
+                      - text: "def open_article(world_id: str, title: str):"
+                      - text: article = db.get_article(world_id, title)
+                      - text: "if article:"
+                      - text: return article
+                      - text: context = retrieve_relevant_canon(world_id, title)
+                      - text: generated = llm.generate(
+                      - text: system_prompt=WORLD_WIKI_SYSTEM_PROMPT,
+                      - text: "user_prompt=f\"Generate a wiki article for [[{title}]].\","
+                      - text: context=context
+                      - text: )
+                      - text: links = extract_wiki_links(generated.content)
+                      - text: article = db.save_article(
+                      - text: world_id=world_id,
+                      - text: title=title,
+                      - text: content_markdown=generated.content,
+                      - text: outgoing_links=links,
+                      - text: summary=generated.summary
+                      - text: )
+                      - text: return article
+                  - separator [ref=e689]
+                  - heading "最重要的问题：如何保持“架空世界的一致性”" [level=2] [ref=e690]
+                  - paragraph [ref=e691]: 这是这个项目的技术亮点。
+                  - paragraph [ref=e692]: 你可以做三层记忆：
+                  - heading "第一层：全局世界设定" [level=3] [ref=e693]
+                  - paragraph [ref=e694]: 固定不变，例如：
+                  - generic [ref=e702]:
+                    - button "复制" [ref=e703] [cursor=pointer]:
+                      - img [ref=e704]
+                    - code [ref=e712]:
+                      - text: "Genre: dark fantasy"
+                      - text: "Magic: memory-based"
+                      - text: "Technology level: early industrial"
+                      - text: "Main conflict: empire collapse and religious control"
+                  - heading "第二层：Canon Summary" [level=3] [ref=e713]
+                  - paragraph [ref=e714]: 每生成几个页面，就更新一个世界总摘要：
+                  - generic [ref=e722]:
+                    - button "复制" [ref=e723] [cursor=pointer]:
+                      - img [ref=e724]
+                    - code [ref=e732]: The world of Elyndor is shaped by the collapse of the Moon Empire...
+                  - paragraph [ref=e733]: 这个摘要每次都放进 prompt。
+                  - heading "第三层：相关条目检索" [level=3] [ref=e734]
+                  - paragraph [ref=e735]:
+                    - text: 生成
+                    - code [ref=e736]: Glass Cathedral
+                    - text: 时，检索：
+                  - list [ref=e737]:
+                    - listitem [ref=e738]:
+                      - paragraph [ref=e739]: Church of Glass；
+                    - listitem [ref=e740]:
+                      - paragraph [ref=e741]: Artificial Memory；
+                    - listitem [ref=e742]:
+                      - paragraph [ref=e743]: Moon Empire；
+                    - listitem [ref=e744]:
+                      - paragraph [ref=e745]: High Synod。
+                  - paragraph [ref=e746]: 这样模型不会凭空乱写。
+                  - separator [ref=e747]
+                  - heading "可以加入一个很有趣的机制：Canon Lock" [level=2] [ref=e748]
+                  - paragraph [ref=e749]: 用户可以选择把某些设定锁定。
+                  - paragraph [ref=e750]: 例如：
+                  - generic [ref=e758]:
+                    - button "复制" [ref=e759] [cursor=pointer]:
+                      - img [ref=e760]
+                    - code [ref=e768]:
+                      - text: "Locked facts:"
+                      - text: "- The Moon Empire has already collapsed."
+                      - text: "- No living dragons exist in the current era."
+                      - text: "- Magic cannot resurrect the dead."
+                  - paragraph [ref=e769]: 生成时必须遵守这些设定。
+                  - paragraph [ref=e770]: 这会让项目从“玩具生成器”变成“可控世界构建工具”。
+                  - separator [ref=e771]
+                  - heading "Demo 形态建议" [level=2] [ref=e772]
+                  - paragraph [ref=e773]: 我建议第一版叫：
+                  - paragraph [ref=e774]:
+                    - strong [ref=e775]: Infinite Lore Wiki
+                  - paragraph [ref=e776]: 界面可以很简单：
+                  - generic [ref=e784]:
+                    - button "复制" [ref=e785] [cursor=pointer]:
+                      - img [ref=e786]
+                    - code [ref=e794]:
+                      - text: "[ World: The Ashen Moon ]"
+                      - text: "Search or create article: [____________]"
+                      - text: "Recently generated:"
+                      - text: "- Moon Empire"
+                      - text: "- Church of Glass"
+                      - text: "- Artificial Memory"
+                      - text: "- War of Seven Ashes"
+                      - text: "---------------------------------------"
+                      - text: "# Moon Empire"
+                      - text: The Moon Empire was the last unified civilization before the [[War of Seven Ashes]]...
+                      - text: "## History"
+                      - text: ...
+                      - text: "## Government"
+                      - text: ...
+                      - text: "## Related Articles"
+                      - text: "- [[Glass Cathedral]]"
+                      - text: "- [[Emperor Vael III]]"
+                      - text: "- [[Lunar Archive]]"
+                  - paragraph [ref=e795]:
+                    - text: 核心体验只要做到：
+                    - strong [ref=e796]: 点一个不存在的链接，它就像真的存在一样被生成出来。
+                  - separator [ref=e797]
+                  - heading "和 flipbook.page 的类比" [level=2] [ref=e798]
+                  - generic [ref=e800]:
+                    - table [ref=e801]:
+                      - rowgroup [ref=e802]:
+                        - row "flipbook.page 你的文字 wiki demo" [ref=e803]:
+                          - columnheader "flipbook.page" [ref=e804]
+                          - columnheader "你的文字 wiki demo" [ref=e805]
+                      - rowgroup [ref=e806]:
+                        - row "生成图像页面 生成 Markdown 页面" [ref=e807]:
+                          - cell "生成图像页面" [ref=e808]
+                          - cell "生成 Markdown 页面" [ref=e809]
+                        - row "点击图像区域 点击 wiki link" [ref=e810]:
+                          - cell "点击图像区域" [ref=e811]
+                          - cell "点击 wiki link" [ref=e812]
+                        - row "视觉探索 知识探索" [ref=e813]:
+                          - cell "视觉探索" [ref=e814]
+                          - cell "知识探索" [ref=e815]
+                        - row "页面难以维护 页面可存储、可编辑" [ref=e816]:
+                          - cell "页面难以维护" [ref=e817]
+                          - cell "页面可存储、可编辑" [ref=e818]
+                        - row "一致性较弱 可以通过 canon database 控制" [ref=e819]:
+                          - cell "一致性较弱" [ref=e820]
+                          - cell "可以通过 canon database 控制" [ref=e821]
+                        - row "更像艺术实验 更像世界构建工具" [ref=e822]:
+                          - cell "更像艺术实验" [ref=e823]
+                          - cell "更像世界构建工具" [ref=e824]
+                    - generic [ref=e826]:
+                      - button "复制表格":
+                        - img
+                  - paragraph [ref=e827]: 所以从工程角度看，你这个版本反而更扎实。
+                  - separator [ref=e828]
+                  - heading "我建议的最小实现路线" [level=2] [ref=e829]
+                  - heading "第 1 步：单世界、单用户、本地存储" [level=3] [ref=e830]
+                  - list [ref=e831]:
+                    - listitem [ref=e832]:
+                      - paragraph [ref=e833]: React 前端；
+                    - listitem [ref=e834]:
+                      - paragraph [ref=e835]: FastAPI 后端；
+                    - listitem [ref=e836]:
+                      - paragraph [ref=e837]: SQLite；
+                    - listitem [ref=e838]:
+                      - paragraph [ref=e839]: OpenAI / Claude / 本地模型均可；
+                    - listitem [ref=e840]:
+                      - paragraph [ref=e841]: Markdown 渲染；
+                    - listitem [ref=e842]:
+                      - paragraph [ref=e843]:
+                        - code [ref=e844]: "[[WikiLink]]"
+                        - text: 解析。
+                  - heading "第 2 步：加入世界记忆" [level=3] [ref=e845]
+                  - list [ref=e846]:
+                    - listitem [ref=e847]:
+                      - paragraph [ref=e848]: 每篇文章有 summary；
+                    - listitem [ref=e849]:
+                      - paragraph [ref=e850]: 每次生成新文章时检索相关 summary；
+                    - listitem [ref=e851]:
+                      - paragraph [ref=e852]: 增加 canon facts；
+                    - listitem [ref=e853]:
+                      - paragraph [ref=e854]: 增加 locked facts。
+                  - heading "第 3 步：加入编辑和再生成" [level=3] [ref=e855]
+                  - paragraph [ref=e856]: 用户可以：
+                  - list [ref=e857]:
+                    - listitem [ref=e858]:
+                      - paragraph [ref=e859]: 编辑条目；
+                    - listitem [ref=e860]:
+                      - paragraph [ref=e861]: 标记设定为 canon；
+                    - listitem [ref=e862]:
+                      - paragraph [ref=e863]: 要求“重写但不改变事实”；
+                    - listitem [ref=e864]:
+                      - paragraph [ref=e865]: 要求“扩写历史部分”。
+                  - heading "第 4 步：加入可视化" [level=3] [ref=e866]
+                  - paragraph [ref=e867]: 后期再做：
+                  - list [ref=e868]:
+                    - listitem [ref=e869]:
+                      - paragraph [ref=e870]: 世界地图；
+                    - listitem [ref=e871]:
+                      - paragraph [ref=e872]: 时间线；
+                    - listitem [ref=e873]:
+                      - paragraph [ref=e874]: 人物关系图；
+                    - listitem [ref=e875]:
+                      - paragraph [ref=e876]: 国家关系图；
+                    - listitem [ref=e877]:
+                      - paragraph [ref=e878]: 事件因果链。
+                  - separator [ref=e879]
+                  - heading "判断" [level=2] [ref=e880]
+                  - paragraph [ref=e881]:
+                    - strong [ref=e882]: 可以做，而且很适合作为一个 AI-native demo。
+                  - paragraph [ref=e883]: 它的重点不在“生成一篇很漂亮的设定文”，而在于：
+                  - blockquote [ref=e884]:
+                    - paragraph [ref=e885]: 把 LLM 变成一个可以持续扩展、可导航、可记忆、可控的架空世界知识库引擎。
+                  - paragraph [ref=e886]: 这比单纯的故事生成器更有产品感，也更适合展示你的工程能力。
+            - generic [ref=e888]:
+              - heading "你说：" [level=4] [ref=e889]
+              - generic [ref=e896]: 我需要用类似wikipedia的框架吗，我希望可以分发到用户本地run比如一个llm api+这个github项目就能在用户本地跑起来
+            - generic [ref=e898]:
+              - heading "ChatGPT 说：" [level=4] [ref=e899]
+              - generic [ref=e901]:
+                - generic [ref=e902]:
+                  - paragraph [ref=e906]: 我会把这个问题按“产品目标”而不是“像不像 Wikipedia”来判断：你要的是可本地运行、易分发、LLM API 可插拔，所以框架选择应优先保证轻量、可控、无外部服务依赖。
+                  - button "已思考 5s" [ref=e908] [cursor=pointer]:
+                    - text: 已思考 5s
+                    - img [ref=e909]
+                  - generic [ref=e913]:
+                    - paragraph [ref=e914]:
+                      - text: 可以，但
+                      - strong [ref=e915]: 不建议直接用 MediaWiki / Wikipedia 那套框架
+                      - text: 。你的目标不是复刻 Wikipedia，而是做一个：
+                    - blockquote [ref=e916]:
+                      - paragraph [ref=e917]: 本地可运行的 AI-generated fictional wiki engine。
+                    - paragraph [ref=e918]:
+                      - text: 所以更合理的方向是：
+                      - strong [ref=e919]: 自己做一个轻量 wiki runtime，而不是套用完整 wiki 系统。
+                    - separator [ref=e920]
+                    - heading "结论" [level=1] [ref=e921]
+                    - heading "不建议用 MediaWiki" [level=2] [ref=e922]
+                    - paragraph [ref=e923]: MediaWiki 是 Wikipedia 使用的软件，但它对你的 demo 来说太重：
+                    - generic [ref=e925]:
+                      - table [ref=e926]:
+                        - rowgroup [ref=e927]:
+                          - row "问题 影响" [ref=e928]:
+                            - columnheader "问题" [ref=e929]
+                            - columnheader "影响" [ref=e930]
+                        - rowgroup [ref=e931]:
+                          - row "PHP + 数据库 + 配置复杂 用户本地启动门槛高" [ref=e932]:
+                            - cell "PHP + 数据库 + 配置复杂" [ref=e933]
+                            - cell "用户本地启动门槛高" [ref=e934]
+                          - row "权限、模板、讨论页、历史版本等功能很重 MVP 用不上" [ref=e935]:
+                            - cell "权限、模板、讨论页、历史版本等功能很重" [ref=e936]
+                            - cell "MVP 用不上" [ref=e937]
+                          - row "LLM 生成流程不好嵌入 你会被框架反过来限制" [ref=e938]:
+                            - cell "LLM 生成流程不好嵌入" [ref=e939]
+                            - cell "你会被框架反过来限制" [ref=e940]
+                          - row "UI/交互比较传统 不适合做 AI-native demo" [ref=e941]:
+                            - cell "UI/交互比较传统" [ref=e942]
+                            - cell "不适合做 AI-native demo" [ref=e943]
+                      - generic [ref=e945]:
+                        - button "复制表格":
+                          - img
+                    - paragraph [ref=e946]: 如果你希望用户：
+                    - generic [ref=e954]:
+                      - generic [ref=e956]:
+                        - generic [ref=e957]:
+                          - img [ref=e958]
+                          - text: Bash
+                        - button "复制" [ref=e961] [cursor=pointer]:
+                          - img [ref=e962]
+                      - code [ref=e970]:
+                        - text: git clone ...
+                        - text: cp .env.example .env
+                        - text: npm install
+                        - text: npm run dev
+                    - paragraph [ref=e971]:
+                      - text: 然后就能跑起来，那
+                      - strong [ref=e972]: MediaWiki 不是好选择
+                      - text: 。
+                    - separator [ref=e973]
+                    - heading "我建议的架构" [level=1] [ref=e974]
+                    - heading "推荐方案：自己做一个 Markdown Wiki App" [level=2] [ref=e975]
+                    - paragraph [ref=e976]: 技术栈可以是：
+                    - generic [ref=e984]:
+                      - button "复制" [ref=e985] [cursor=pointer]:
+                        - img [ref=e986]
+                      - code [ref=e994]:
+                        - text: Next.js / React
+                        - text: + SQLite
+                        - text: + Markdown renderer
+                        - text: + [[WikiLink]] parser
+                        - text: + LLM API adapter
+                    - paragraph [ref=e995]: 这样用户本地只需要：
+                    - generic [ref=e1003]:
+                      - generic [ref=e1005]:
+                        - generic [ref=e1006]:
+                          - img [ref=e1007]
+                          - text: Bash
+                        - button "复制" [ref=e1010] [cursor=pointer]:
+                          - img [ref=e1011]
+                      - code [ref=e1019]:
+                        - text: git clone https://github.com/you/infinite-lore-wiki
+                        - text: cd infinite-lore-wiki
+                        - text: pnpm install
+                        - text: cp .env.example .env
+                        - text: pnpm dev
+                    - paragraph [ref=e1020]:
+                      - code [ref=e1021]: .env
+                      - text: 里配置：
+                    - generic [ref=e1029]:
+                      - generic [ref=e1031]:
+                        - generic [ref=e1032]:
+                          - img [ref=e1033]
+                          - text: env
+                        - button "复制" [ref=e1036] [cursor=pointer]:
+                          - img [ref=e1037]
+                      - code [ref=e1045]:
+                        - text: OPENAI_API_KEY=...
+                        - text: LLM_PROVIDER=openai
+                        - text: MODEL=gpt-4.1-mini
+                        - text: DATABASE_URL=file:./world.db
+                    - paragraph [ref=e1046]: 这比部署一个完整 wiki 系统更符合你的目标。
+                    - separator [ref=e1047]
+                    - heading "为什么自己做更好" [level=1] [ref=e1048]
+                    - heading "1. 你的核心不是 wiki，而是生成循环" [level=2] [ref=e1049]
+                    - paragraph [ref=e1050]: 你的核心 loop 是：
+                    - generic [ref=e1058]:
+                      - button "复制" [ref=e1059] [cursor=pointer]:
+                        - img [ref=e1060]
+                      - code [ref=e1068]:
+                        - text: 点击不存在的 [[词条]]
+                        - text: ↓
+                        - text: 检索已有世界设定
+                        - text: ↓
+                        - text: 调用 LLM 生成新词条
+                        - text: ↓
+                        - text: 保存 Markdown
+                        - text: ↓
+                        - text: 抽取新链接
+                        - text: ↓
+                        - text: 继续探索
+                    - paragraph [ref=e1069]: 传统 wiki 框架主要解决的是：
+                    - list [ref=e1070]:
+                      - listitem [ref=e1071]:
+                        - paragraph [ref=e1072]: 多人编辑；
+                      - listitem [ref=e1073]:
+                        - paragraph [ref=e1074]: 页面版本；
+                      - listitem [ref=e1075]:
+                        - paragraph [ref=e1076]: 权限管理；
+                      - listitem [ref=e1077]:
+                        - paragraph [ref=e1078]: 模板；
+                      - listitem [ref=e1079]:
+                        - paragraph [ref=e1080]: 分类；
+                      - listitem [ref=e1081]:
+                        - paragraph [ref=e1082]: 讨论页；
+                      - listitem [ref=e1083]:
+                        - paragraph [ref=e1084]: 引用；
+                      - listitem [ref=e1085]:
+                        - paragraph [ref=e1086]: 站点管理。
+                    - paragraph [ref=e1087]: 这些都不是 MVP 的核心。
+                    - separator [ref=e1088]
+                    - heading "2. Markdown 比传统 wiki markup 更适合 LLM" [level=2] [ref=e1089]
+                    - paragraph [ref=e1090]:
+                      - text: 让 LLM 生成 MediaWiki markup 会很麻烦。
+                      - text: 让 LLM 生成 Markdown +
+                      - code [ref=e1091]: "[[WikiLink]]"
+                      - text: 会自然很多。
+                    - paragraph [ref=e1092]: 例如：
+                    - generic [ref=e1100]:
+                      - generic [ref=e1102]:
+                        - generic [ref=e1103]:
+                          - img [ref=e1104]
+                          - text: Markdown
+                        - button "复制" [ref=e1107] [cursor=pointer]:
+                          - img [ref=e1108]
+                      - code [ref=e1116]:
+                        - text: "# Ashen Republic"
+                        - text: The **Ashen Republic** emerged after the collapse of the [[Moon Empire]].
+                        - text: "## History"
+                        - text: Its founding is usually traced to the aftermath of the [[War of Seven Ashes]].
+                        - text: "## Related Articles"
+                        - text: "- [[Moon Empire]]"
+                        - text: "- [[Glass Cathedral]]"
+                        - text: "- [[Artificial Memory]]"
+                    - paragraph [ref=e1117]: 这对 LLM、前端渲染、用户编辑都更友好。
+                    - separator [ref=e1118]
+                    - heading "最适合你的 MVP 结构" [level=1] [ref=e1119]
+                    - heading "项目目录" [level=2] [ref=e1120]
+                    - generic [ref=e1128]:
+                      - button "复制" [ref=e1129] [cursor=pointer]:
+                        - img [ref=e1130]
+                      - code [ref=e1138]:
+                        - text: infinite-lore-wiki/
+                        - text: app/
+                        - text: page.tsx
+                        - text: wiki/[slug]/page.tsx
+                        - text: api/
+                        - text: generate/route.ts
+                        - text: search/route.ts
+                        - text: components/
+                        - text: WikiRenderer.tsx
+                        - text: ArticleSidebar.tsx
+                        - text: GenerateButton.tsx
+                        - text: lib/
+                        - text: db.ts
+                        - text: llm.ts
+                        - text: wiki-links.ts
+                        - text: prompts.ts
+                        - text: retrieval.ts
+                        - text: prisma/
+                        - text: schema.prisma
+                        - text: .env.example
+                        - text: README.md
+                    - separator [ref=e1139]
+                    - heading "数据层建议" [level=1] [ref=e1140]
+                    - heading "SQLite 足够" [level=2] [ref=e1141]
+                    - paragraph [ref=e1142]: 本地 demo 最适合 SQLite。
+                    - generic [ref=e1150]:
+                      - generic [ref=e1152]:
+                        - generic [ref=e1153]:
+                          - img [ref=e1154]
+                          - text: prisma
+                        - button "复制" [ref=e1157] [cursor=pointer]:
+                          - img [ref=e1158]
+                      - code [ref=e1166]:
+                        - text: "model World {"
+                        - text: id String @id @default(cuid())
+                        - text: name String
+                        - text: seedPrompt String
+                        - text: canonSummary String?
+                        - text: createdAt DateTime @default(now())
+                        - text: articles Article[]
+                        - text: "}"
+                        - text: "model Article {"
+                        - text: id String @id @default(cuid())
+                        - text: worldId String
+                        - text: title String
+                        - text: slug String
+                        - text: type String?
+                        - text: contentMarkdown String
+                        - text: summary String?
+                        - text: outgoingLinks String // JSON string
+                        - text: createdAt DateTime @default(now())
+                        - text: updatedAt DateTime @updatedAt
+                        - text: "world World @relation(fields: [worldId], references: [id])"
+                        - text: "@@unique([worldId, slug])"
+                        - text: "}"
+                    - paragraph [ref=e1167]:
+                      - text: 对于 demo，不需要一开始就上 vector database。
+                      - text: 可以先用：
+                    - list [ref=e1168]:
+                      - listitem [ref=e1169]:
+                        - paragraph [ref=e1170]: 标题匹配；
+                      - listitem [ref=e1171]:
+                        - paragraph [ref=e1172]: 链接邻接；
+                      - listitem [ref=e1173]:
+                        - paragraph [ref=e1174]: 简单全文搜索；
+                      - listitem [ref=e1175]:
+                        - paragraph [ref=e1176]: 最近生成页面；
+                      - listitem [ref=e1177]:
+                        - paragraph [ref=e1178]: 全局 canon summary。
+                    - paragraph [ref=e1179]: 后面再加 embeddings。
+                    - separator [ref=e1180]
+                    - heading "LLM API 层要做成可插拔" [level=1] [ref=e1181]
+                    - paragraph [ref=e1182]: 你希望“一个 LLM API + GitHub 项目就能本地跑”，所以不要锁死 OpenAI。
+                    - paragraph [ref=e1183]: 建议抽象成：
+                    - generic [ref=e1191]:
+                      - generic [ref=e1193]:
+                        - generic [ref=e1194]:
+                          - img [ref=e1195]
+                          - text: TypeScript
+                        - button "复制" [ref=e1198] [cursor=pointer]:
+                          - img [ref=e1199]
+                      - code [ref=e1207]:
+                        - text: "export interface LLMClient {"
+                        - text: "generateArticle(input: GenerateArticleInput): Promise<GeneratedArticle>"
+                        - text: "summarizeArticle(content: string): Promise<string>"
+                        - text: "updateCanonSummary(input: CanonUpdateInput): Promise<string>"
+                        - text: "}"
+                    - paragraph [ref=e1208]: 然后支持：
+                    - generic [ref=e1216]:
+                      - button "复制" [ref=e1217] [cursor=pointer]:
+                        - img [ref=e1218]
+                      - code [ref=e1226]:
+                        - text: OpenAI-compatible API
+                        - text: Anthropic
+                        - text: Gemini
+                        - text: Ollama
+                        - text: LM Studio
+                        - text: LocalAI
+                    - paragraph [ref=e1227]:
+                      - text: 第一版最简单支持
+                      - strong [ref=e1228]: OpenAI-compatible API
+                      - text: 即可。这样用户可以接：
+                    - list [ref=e1229]:
+                      - listitem [ref=e1230]:
+                        - paragraph [ref=e1231]: OpenAI；
+                      - listitem [ref=e1232]:
+                        - paragraph [ref=e1233]: OpenRouter；
+                      - listitem [ref=e1234]:
+                        - paragraph [ref=e1235]: DeepSeek；
+                      - listitem [ref=e1236]:
+                        - paragraph [ref=e1237]: Qwen API；
+                      - listitem [ref=e1238]:
+                        - paragraph [ref=e1239]: Ollama 的 OpenAI-compatible endpoint；
+                      - listitem [ref=e1240]:
+                        - paragraph [ref=e1241]: LM Studio 本地 API。
+                    - paragraph [ref=e1242]:
+                      - text: Ollama 和 LM Studio 都支持本地模型路线，比较适合你这种“用户本地跑”的目标。
+                      - text: Docusaurus 是静态站点生成器，适合文档网站，但不适合“点击不存在条目后实时生成并保存”的动态本地应用。官方也把它定义为 static-site generator。
+                      - link "Docusaurus" [ref=e1245] [cursor=pointer]:
+                        - /url: https://docusaurus.io/docs?utm_source=chatgpt.com
+                        - generic [ref=e1248]: Docusaurus
+                    - separator [ref=e1249]
+                    - heading "可以参考，但不直接采用的框架" [level=1] [ref=e1250]
+                    - heading "1. TiddlyWiki" [level=2] [ref=e1251]
+                    - paragraph [ref=e1252]:
+                      - text: TiddlyWiki 是一个很有启发性的参考对象。它是 self-contained JavaScript wiki，可以作为单个 HTML 文件在浏览器运行，也可以作为 Node.js 应用运行。
+                      - link "GitHub" [ref=e1255] [cursor=pointer]:
+                        - /url: https://github.com/TiddlyWiki/TiddlyWiki5?utm_source=chatgpt.com
+                        - generic [ref=e1258]: GitHub
+                    - paragraph [ref=e1259]: 适合参考：
+                    - list [ref=e1260]:
+                      - listitem [ref=e1261]:
+                        - paragraph [ref=e1262]: 非线性笔记；
+                      - listitem [ref=e1263]:
+                        - paragraph [ref=e1264]: 本地优先；
+                      - listitem [ref=e1265]:
+                        - paragraph [ref=e1266]: 小条目组织；
+                      - listitem [ref=e1267]:
+                        - paragraph [ref=e1268]: wiki link 思路。
+                    - paragraph [ref=e1269]: 但不建议直接基于它做 LLM 生成 demo，原因是：
+                    - list [ref=e1270]:
+                      - listitem [ref=e1271]:
+                        - paragraph [ref=e1272]: 插件体系和数据模型要适应；
+                      - listitem [ref=e1273]:
+                        - paragraph [ref=e1274]: 现代 React UI 不方便；
+                      - listitem [ref=e1275]:
+                        - paragraph [ref=e1276]: LLM API、流式生成、状态管理需要额外改造。
+                    - heading "2. DokuWiki" [level=2] [ref=e1277]
+                    - paragraph [ref=e1278]:
+                      - text: DokuWiki 的优点是轻量、所有数据存 plain text，不需要数据库。Awesome Selfhosted 对它的描述也是 no database required、data stored in plain text files。
+                      - link "自托管神器" [ref=e1281] [cursor=pointer]:
+                        - /url: https://awesome-selfhosted.net/tags/wikis.html?utm_source=chatgpt.com
+                        - generic [ref=e1284]: 自托管神器
+                    - paragraph [ref=e1285]: 但它是 PHP 生态，作为你的 AI-native demo 不如 TypeScript/React 方便。
+                    - heading "3. Wiki.js" [level=2] [ref=e1286]
+                    - paragraph [ref=e1287]:
+                      - text: Wiki.js 是现代 self-hosted wiki，功能强，但对 MVP 来说仍然偏重。官网定位是 extensible open-source Wiki software，并支持 Docker、Kubernetes、Linux、macOS、Windows Server 等部署方式。
+                      - link "Wiki.js" [ref=e1290] [cursor=pointer]:
+                        - /url: https://js.wiki/?utm_source=chatgpt.com
+                        - generic [ref=e1293]: Wiki.js
+                    - paragraph [ref=e1294]: 它适合作为正式知识库，不适合作为你的轻量生成式探索 demo 底座。
+                    - separator [ref=e1295]
+                    - heading "我会选的技术方案" [level=1] [ref=e1296]
+                    - heading "方案 A：最推荐" [level=2] [ref=e1297]
+                    - generic [ref=e1305]:
+                      - button "复制" [ref=e1306] [cursor=pointer]:
+                        - img [ref=e1307]
+                      - code [ref=e1315]: Next.js + SQLite + Prisma + React Markdown + OpenAI-compatible API
+                    - paragraph [ref=e1316]: 优点：
+                    - list [ref=e1317]:
+                      - listitem [ref=e1318]:
+                        - paragraph [ref=e1319]: 用户启动简单；
+                      - listitem [ref=e1320]:
+                        - paragraph [ref=e1321]: GitHub 分发自然；
+                      - listitem [ref=e1322]:
+                        - paragraph [ref=e1323]: 前后端一体；
+                      - listitem [ref=e1324]:
+                        - paragraph [ref=e1325]: 本地 SQLite；
+                      - listitem [ref=e1326]:
+                        - paragraph [ref=e1327]: 可接各种 LLM；
+                      - listitem [ref=e1328]:
+                        - paragraph [ref=e1329]: 后续可打包成桌面 app。
+                    - paragraph [ref=e1330]: 缺点：
+                    - list [ref=e1331]:
+                      - listitem [ref=e1332]:
+                        - paragraph [ref=e1333]: 需要 Node.js 环境；
+                      - listitem [ref=e1334]:
+                        - paragraph [ref=e1335]: 你要自己写 wiki link、生成、存储逻辑。
+                    - paragraph [ref=e1336]: 这是最适合 demo 和后续产品化的路线。
+                    - separator [ref=e1337]
+                    - heading "方案 B：更极简" [level=2] [ref=e1338]
+                    - generic [ref=e1346]:
+                      - button "复制" [ref=e1347] [cursor=pointer]:
+                        - img [ref=e1348]
+                      - code [ref=e1356]: Vite React + FastAPI + SQLite
+                    - paragraph [ref=e1357]: 优点：
+                    - list [ref=e1358]:
+                      - listitem [ref=e1359]:
+                        - paragraph [ref=e1360]: Python 后端适合你写 LLM pipeline；
+                      - listitem [ref=e1361]:
+                        - paragraph [ref=e1362]: FastAPI 很清楚；
+                      - listitem [ref=e1363]:
+                        - paragraph [ref=e1364]: 数据处理方便。
+                    - paragraph [ref=e1365]: 缺点：
+                    - list [ref=e1366]:
+                      - listitem [ref=e1367]:
+                        - paragraph [ref=e1368]: 用户要同时跑前端和后端；
+                      - listitem [ref=e1369]:
+                        - paragraph [ref=e1370]: 分发体验稍差；
+                      - listitem [ref=e1371]:
+                        - paragraph [ref=e1372]: 对纯前端/JS 用户不如 Next.js 顺手。
+                    - separator [ref=e1373]
+                    - heading "方案 C：桌面本地应用" [level=2] [ref=e1374]
+                    - generic [ref=e1382]:
+                      - button "复制" [ref=e1383] [cursor=pointer]:
+                        - img [ref=e1384]
+                      - code [ref=e1392]: Tauri + React + SQLite
+                    - paragraph [ref=e1393]: 优点：
+                    - list [ref=e1394]:
+                      - listitem [ref=e1395]:
+                        - paragraph [ref=e1396]: 真正本地 app；
+                      - listitem [ref=e1397]:
+                        - paragraph [ref=e1398]:
+                          - text: 可打包成
+                          - code [ref=e1399]: .dmg
+                          - text: /
+                          - code [ref=e1400]: .exe
+                          - text: /
+                          - code [ref=e1401]: .AppImage
+                          - text: ；
+                      - listitem [ref=e1402]:
+                        - paragraph [ref=e1403]: 用户不用理解 dev server。
+                    - paragraph [ref=e1404]: 缺点：
+                    - list [ref=e1405]:
+                      - listitem [ref=e1406]:
+                        - paragraph [ref=e1407]: 开发复杂度更高；
+                      - listitem [ref=e1408]:
+                        - paragraph [ref=e1409]: 初期 demo 没必要。
+                    - paragraph [ref=e1410]: 建议后期再考虑。
+                    - separator [ref=e1411]
+                    - heading "推荐 MVP 功能边界" [level=1] [ref=e1412]
+                    - paragraph [ref=e1413]: 第一版不要做成完整 wiki。只做这些：
+                    - heading "必须有" [level=2] [ref=e1414]
+                    - generic [ref=e1416]:
+                      - table [ref=e1417]:
+                        - rowgroup [ref=e1418]:
+                          - row "功能 说明" [ref=e1419]:
+                            - columnheader "功能" [ref=e1420]
+                            - columnheader "说明" [ref=e1421]
+                        - rowgroup [ref=e1422]:
+                          - row "创建世界 用户输入 seed prompt" [ref=e1423]:
+                            - cell "创建世界" [ref=e1424]
+                            - cell "用户输入 seed prompt" [ref=e1425]
+                          - row "世界首页 生成世界总览" [ref=e1426]:
+                            - cell "世界首页" [ref=e1427]
+                            - cell "生成世界总览" [ref=e1428]
+                          - row "WikiLink 渲染 [[Moon Empire]] 变成可点击链接" [ref=e1429]:
+                            - cell "WikiLink 渲染" [ref=e1430]
+                            - cell "[[Moon Empire]] 变成可点击链接" [ref=e1431]:
+                              - code [ref=e1432]: "[[Moon Empire]]"
+                              - text: 变成可点击链接
+                          - row "不存在页面自动生成 点击后调用 LLM" [ref=e1433]:
+                            - cell "不存在页面自动生成" [ref=e1434]
+                            - cell "点击后调用 LLM" [ref=e1435]
+                          - row "本地保存 SQLite 保存世界和词条" [ref=e1436]:
+                            - cell "本地保存" [ref=e1437]
+                            - cell "SQLite 保存世界和词条" [ref=e1438]
+                          - row "已生成页面列表 sidebar 显示" [ref=e1439]:
+                            - cell "已生成页面列表" [ref=e1440]
+                            - cell "sidebar 显示" [ref=e1441]
+                          - row "搜索/跳转 搜索已有词条或创建新词条" [ref=e1442]:
+                            - cell "搜索/跳转" [ref=e1443]
+                            - cell "搜索已有词条或创建新词条" [ref=e1444]
+                          - row ".env 配置 LLM 用户填 API key 或 base URL" [ref=e1445]:
+                            - cell ".env 配置 LLM" [ref=e1446]:
+                              - code [ref=e1447]: .env
+                              - text: 配置 LLM
+                            - cell "用户填 API key 或 base URL" [ref=e1448]
+                      - generic [ref=e1450]:
+                        - button "复制表格":
+                          - img
+                    - heading "暂时不要做" [level=2] [ref=e1451]
+                    - generic [ref=e1453]:
+                      - table [ref=e1454]:
+                        - rowgroup [ref=e1455]:
+                          - row "功能 原因" [ref=e1456]:
+                            - columnheader "功能" [ref=e1457]
+                            - columnheader "原因" [ref=e1458]
+                        - rowgroup [ref=e1459]:
+                          - row "多用户权限 MVP 不需要" [ref=e1460]:
+                            - cell "多用户权限" [ref=e1461]
+                            - cell "MVP 不需要" [ref=e1462]
+                          - row "评论/讨论页 偏离核心" [ref=e1463]:
+                            - cell "评论/讨论页" [ref=e1464]
+                            - cell "偏离核心" [ref=e1465]
+                          - row "完整版本历史 可以后面加" [ref=e1466]:
+                            - cell "完整版本历史" [ref=e1467]
+                            - cell "可以后面加" [ref=e1468]
+                          - row "复杂模板系统 会拖慢开发" [ref=e1469]:
+                            - cell "复杂模板系统" [ref=e1470]
+                            - cell "会拖慢开发" [ref=e1471]
+                          - row "RAG 向量库 第一版可不用" [ref=e1472]:
+                            - cell "RAG 向量库" [ref=e1473]
+                            - cell "第一版可不用" [ref=e1474]
+                          - row "在线托管账号系统 违背本地优先目标" [ref=e1475]:
+                            - cell "在线托管账号系统" [ref=e1476]
+                            - cell "违背本地优先目标" [ref=e1477]
+                      - generic [ref=e1479]:
+                        - button "复制表格":
+                          - img
+                    - separator [ref=e1480]
+                    - heading "README 里的用户运行方式" [level=1] [ref=e1481]
+                    - paragraph [ref=e1482]: 你可以把目标设计成这样：
+                    - generic [ref=e1490]:
+                      - generic [ref=e1492]:
+                        - generic [ref=e1493]:
+                          - img [ref=e1494]
+                          - text: Bash
+                        - button "复制" [ref=e1497] [cursor=pointer]:
+                          - img [ref=e1498]
+                      - code [ref=e1506]:
+                        - text: git clone https://github.com/yourname/infinite-lore-wiki.git
+                        - text: cd infinite-lore-wiki
+                        - text: pnpm install
+                        - text: cp .env.example .env
+                        - text: pnpm db:push
+                        - text: pnpm dev
+                    - paragraph [ref=e1507]:
+                      - code [ref=e1508]: .env.example
+                      - text: ：
+                    - generic [ref=e1516]:
+                      - generic [ref=e1518]:
+                        - generic [ref=e1519]:
+                          - img [ref=e1520]
+                          - text: env
+                        - button "复制" [ref=e1523] [cursor=pointer]:
+                          - img [ref=e1524]
+                      - code [ref=e1532]:
+                        - text: LLM_PROVIDER=openai-compatible
+                        - text: LLM_BASE_URL=https://api.openai.com/v1
+                        - text: LLM_API_KEY=your_api_key_here
+                        - text: LLM_MODEL=gpt-4.1-mini
+                        - text: DATABASE_URL=file:./dev.db
+                    - paragraph [ref=e1533]: 如果用户用 Ollama：
+                    - generic [ref=e1541]:
+                      - generic [ref=e1543]:
+                        - generic [ref=e1544]:
+                          - img [ref=e1545]
+                          - text: env
+                        - button "复制" [ref=e1548] [cursor=pointer]:
+                          - img [ref=e1549]
+                      - code [ref=e1557]:
+                        - text: LLM_PROVIDER=openai-compatible
+                        - text: LLM_BASE_URL=http://localhost:11434/v1
+                        - text: LLM_API_KEY=ollama
+                        - text: LLM_MODEL=qwen2.5:7b
+                    - separator [ref=e1558]
+                    - heading "核心代码模块" [level=1] [ref=e1559]
+                    - heading "wiki-links.ts" [level=2] [ref=e1560]:
+                      - code [ref=e1562]: wiki-links.ts
+                    - paragraph [ref=e1563]: 负责解析：
+                    - generic [ref=e1571]:
+                      - generic [ref=e1573]:
+                        - generic [ref=e1574]:
+                          - img [ref=e1575]
+                          - text: TypeScript
+                        - button "复制" [ref=e1578] [cursor=pointer]:
+                          - img [ref=e1579]
+                      - code [ref=e1587]: const WIKI_LINK_REGEX = /\[\[([^\]]+)\]\]/g
+                    - paragraph [ref=e1588]: 输出：
+                    - generic [ref=e1596]:
+                      - generic [ref=e1598]:
+                        - generic [ref=e1599]:
+                          - img [ref=e1600]
+                          - text: TypeScript
+                        - button "复制" [ref=e1603] [cursor=pointer]:
+                          - img [ref=e1604]
+                      - code [ref=e1612]:
+                        - text: "["
+                        - text: "\"Moon Empire\","
+                        - text: "\"War of Seven Ashes\","
+                        - text: "\"Glass Cathedral\""
+                        - text: "]"
+                    - paragraph [ref=e1613]: 渲染时把它们变成：
+                    - generic [ref=e1621]:
+                      - generic [ref=e1623]:
+                        - generic [ref=e1624]:
+                          - img [ref=e1625]
+                          - text: TypeScript
+                        - button "复制" [ref=e1628] [cursor=pointer]:
+                          - img [ref=e1629]
+                      - code [ref=e1637]: "<Link href={`/wiki/${slugify(title)}`}>{title}</Link>"
+                    - separator [ref=e1638]
+                    - heading "llm.ts" [level=2] [ref=e1639]:
+                      - code [ref=e1641]: llm.ts
+                    - paragraph [ref=e1642]: 统一调用模型：
+                    - generic [ref=e1650]:
+                      - generic [ref=e1652]:
+                        - generic [ref=e1653]:
+                          - img [ref=e1654]
+                          - text: TypeScript
+                        - button "复制" [ref=e1657] [cursor=pointer]:
+                          - img [ref=e1658]
+                      - code [ref=e1666]:
+                        - text: "export async function generateArticle({"
+                        - text: title,
+                        - text: world,
+                        - text: relatedArticles,
+                        - text: "}: GenerateArticleInput) {"
+                        - text: "const prompt = buildArticlePrompt({ title, world, relatedArticles })"
+                        - text: "return await client.chat.completions.create({"
+                        - text: "model: process.env.LLM_MODEL!,"
+                        - text: "messages: ["
+                        - text: "{ role: \"system\", content: SYSTEM_PROMPT },"
+                        - text: "{ role: \"user\", content: prompt },"
+                        - text: "],"
+                        - text: "})"
+                        - text: "}"
+                    - separator [ref=e1667]
+                    - heading "prompts.ts" [level=2] [ref=e1668]:
+                      - code [ref=e1670]: prompts.ts
+                    - paragraph [ref=e1671]: 关键 prompt 应该强约束输出：
+                    - generic [ref=e1679]:
+                      - button "复制" [ref=e1680] [cursor=pointer]:
+                        - img [ref=e1681]
+                      - code [ref=e1689]:
+                        - text: You are generating a fictional encyclopedia article for a coherent invented world.
+                        - text: "Rules:"
+                        - text: "- Output Markdown only."
+                        - text: "- Use the article title exactly."
+                        - text: "- Maintain consistency with established canon."
+                        - text: "- Do not contradict locked facts."
+                        - text: "- Include 5-12 wiki links using [[Article Title]] syntax."
+                        - text: "- Do not mention that the world is AI-generated."
+                        - text: "- Do not include real-world copyrighted settings or characters."
+                    - separator [ref=e1690]
+                    - heading "一致性机制" [level=1] [ref=e1691]
+                    - paragraph [ref=e1692]: 第一版可以做一个简单但有效的版本：
+                    - paragraph [ref=e1693]: 生成新页面时，把这些内容放进 prompt：
+                    - generic [ref=e1701]:
+                      - button "复制" [ref=e1702] [cursor=pointer]:
+                        - img [ref=e1703]
+                      - code [ref=e1711]:
+                        - text: "World Seed:"
+                        - text: ...
+                        - text: "Canon Summary:"
+                        - text: ...
+                        - text: "Relevant Existing Articles:"
+                        - text: 1. Moon Empire — summary...
+                        - text: 2. Church of Glass — summary...
+                        - text: 3. War of Seven Ashes — summary...
+                        - text: "Requested Article:"
+                        - text: Ashen Republic
+                    - paragraph [ref=e1712]: 这样已经比纯随机生成稳定很多。
+                    - separator [ref=e1713]
+                    - heading "最终建议" [level=1] [ref=e1714]
+                    - paragraph [ref=e1715]:
+                      - text: 不要用 Wikipedia 的框架。
+                      - text: 你应该做一个
+                      - strong [ref=e1716]: local-first LLM wiki runtime
+                      - text: ：
+                    - generic [ref=e1724]:
+                      - button "复制" [ref=e1725] [cursor=pointer]:
+                        - img [ref=e1726]
+                      - code [ref=e1734]:
+                        - text: Markdown 页面
+                        - text: + [[WikiLink]]
+                        - text: + SQLite 本地存储
+                        - text: + OpenAI-compatible LLM API
+                        - text: + Next.js 前后端一体
+                    - paragraph [ref=e1735]: 它的定位可以是：
+                    - blockquote [ref=e1736]:
+                      - paragraph [ref=e1737]: Clone repo, add an LLM API key, run locally, and explore an infinite fictional wiki.
+                    - paragraph [ref=e1738]: 这个方向工程量可控，而且 demo 效果会很明确。
+                - button "来源" [ref=e1739] [cursor=pointer]:
+                  - img [ref=e1744]
+                  - generic [ref=e1748]: 来源
+            - generic [ref=e1750]:
+              - heading "你说：" [level=4] [ref=e1751]
+              - generic [ref=e1758]: 比如可以高亮wiki页面的名词，点进去之后动态loading
+            - generic [ref=e1760]:
+              - heading "ChatGPT 说：" [level=4] [ref=e1761]
+              - generic [ref=e1764]:
+                - button "已思考若干秒" [ref=e1766] [cursor=pointer]:
+                  - text: 已思考若干秒
+                  - img [ref=e1767]
+                - generic [ref=e1771]:
+                  - paragraph [ref=e1772]: 可以，这正是这个项目最核心、最有“无限 wiki”感觉的交互。
+                  - paragraph [ref=e1773]: 你可以把它设计成：
+                  - blockquote [ref=e1774]:
+                    - paragraph [ref=e1775]:
+                      - text: 页面正文中出现的关键名词自动高亮。
+                      - text: 用户点击高亮词后，如果本地已有词条，就直接打开；如果没有，就动态调用 LLM 生成，并显示 loading 状态。
+                  - separator [ref=e1776]
+                  - heading "推荐交互模型" [level=1] [ref=e1777]
+                  - heading "1. 已存在词条" [level=2] [ref=e1778]
+                  - paragraph [ref=e1779]: 例如页面里有：
+                  - generic [ref=e1787]:
+                    - generic [ref=e1789]:
+                      - generic [ref=e1790]:
+                        - img [ref=e1791]
+                        - text: Markdown
+                      - button "复制" [ref=e1794] [cursor=pointer]:
+                        - img [ref=e1795]
+                    - code [ref=e1803]: The [[Moon Empire]] collapsed after the [[War of Seven Ashes]].
+                  - paragraph [ref=e1804]: 前端渲染成：
+                  - generic [ref=e1812]:
+                    - button "复制" [ref=e1813] [cursor=pointer]:
+                      - img [ref=e1814]
+                    - code [ref=e1822]: The Moon Empire collapsed after the War of Seven Ashes.
+                  - paragraph [ref=e1823]: 其中：
+                  - list [ref=e1824]:
+                    - listitem [ref=e1825]:
+                      - paragraph [ref=e1826]:
+                        - code [ref=e1827]: Moon Empire
+                        - text: 蓝色高亮；
+                    - listitem [ref=e1828]:
+                      - paragraph [ref=e1829]:
+                        - code [ref=e1830]: War of Seven Ashes
+                        - text: 蓝色高亮；
+                    - listitem [ref=e1831]:
+                      - paragraph [ref=e1832]: 点击后直接进入对应 wiki 页面。
+                  - separator [ref=e1833]
+                  - heading "2. 不存在词条" [level=2] [ref=e1834]
+                  - paragraph [ref=e1835]:
+                    - text: 如果用户点击
+                    - code [ref=e1836]: "[[Glass Cathedral]]"
+                    - text: ，但数据库里还没有这个页面：
+                  - generic [ref=e1844]:
+                    - button "复制" [ref=e1845] [cursor=pointer]:
+                      - img [ref=e1846]
+                    - code [ref=e1854]: Glass Cathedral
+                  - paragraph [ref=e1855]: 点击后：
+                  - list [ref=e1856]:
+                    - listitem [ref=e1857]:
+                      - paragraph [ref=e1858]:
+                        - text: 前端打开
+                        - code [ref=e1859]: /wiki/glass-cathedral
+                        - text: ；
+                    - listitem [ref=e1860]:
+                      - paragraph [ref=e1861]: 页面显示 loading skeleton；
+                    - listitem [ref=e1862]:
+                      - paragraph [ref=e1863]: 后端检查数据库；
+                    - listitem [ref=e1864]:
+                      - paragraph [ref=e1865]: 如果没有，调用 LLM 生成；
+                    - listitem [ref=e1866]:
+                      - paragraph [ref=e1867]: 生成完成后存入 SQLite；
+                    - listitem [ref=e1868]:
+                      - paragraph [ref=e1869]: 页面更新显示新词条。
+                  - paragraph [ref=e1870]: 体验上就像：
+                  - generic [ref=e1878]:
+                    - button "复制" [ref=e1879] [cursor=pointer]:
+                      - img [ref=e1880]
+                    - code [ref=e1888]: 正在生成 Glass Cathedral...
+                  - paragraph [ref=e1889]: 然后几秒后变成完整 wiki 页面。
+                  - separator [ref=e1890]
+                  - heading "推荐页面状态" [level=1] [ref=e1891]
+                  - paragraph [ref=e1892]: 每个词条可以有三种状态：
+                  - generic [ref=e1894]:
+                    - table [ref=e1895]:
+                      - rowgroup [ref=e1896]:
+                        - row "状态 UI 表现 行为" [ref=e1897]:
+                          - columnheader "状态" [ref=e1898]
+                          - columnheader "UI 表现" [ref=e1899]
+                          - columnheader "行为" [ref=e1900]
+                      - rowgroup [ref=e1901]:
+                        - row "exists 普通蓝色链接 点击直接打开" [ref=e1902]:
+                          - cell "exists" [ref=e1903]:
+                            - code [ref=e1904]: exists
+                          - cell "普通蓝色链接" [ref=e1905]
+                          - cell "点击直接打开" [ref=e1906]
+                        - row "missing 虚线下划线 / 淡色高亮 点击后生成" [ref=e1907]:
+                          - cell "missing" [ref=e1908]:
+                            - code [ref=e1909]: missing
+                          - cell "虚线下划线 / 淡色高亮" [ref=e1910]
+                          - cell "点击后生成" [ref=e1911]
+                        - row "generating loading 状态 禁止重复点击或显示进度" [ref=e1912]:
+                          - cell "generating" [ref=e1913]:
+                            - code [ref=e1914]: generating
+                          - cell "loading 状态" [ref=e1915]
+                          - cell "禁止重复点击或显示进度" [ref=e1916]
+                        - row "error 红色提示 允许重试" [ref=e1917]:
+                          - cell "error" [ref=e1918]:
+                            - code [ref=e1919]: error
+                          - cell "红色提示" [ref=e1920]
+                          - cell "允许重试" [ref=e1921]
+                    - generic [ref=e1923]:
+                      - button "复制表格":
+                        - img
+                  - paragraph [ref=e1924]: 可以给用户一种“这个词条还没被发现”的感觉。
+                  - separator [ref=e1925]
+                  - heading "关键实现方式" [level=1] [ref=e1926]
+                  - heading "方案 A：LLM 主动生成 [[WikiLink]]" [level=2] [ref=e1927]:
+                    - generic [ref=e1928]:
+                      - text: 方案 A：LLM 主动生成
+                      - code [ref=e1929]: "[[WikiLink]]"
+                  - paragraph [ref=e1930]: 这是最简单、最推荐的 MVP 方案。
+                  - paragraph [ref=e1931]: 让 LLM 输出时主动标记重要名词：
+                  - generic [ref=e1939]:
+                    - generic [ref=e1941]:
+                      - generic [ref=e1942]:
+                        - img [ref=e1943]
+                        - text: Markdown
+                      - button "复制" [ref=e1946] [cursor=pointer]:
+                        - img [ref=e1947]
+                    - code [ref=e1955]:
+                      - text: The [[Moon Empire]] ruled the western continent before the [[Ashen Schism]].
+                      - text: Its capital, [[Lunara]], was destroyed during the [[War of Seven Ashes]].
+                  - paragraph [ref=e1956]:
+                    - text: 然后前端只需要解析
+                    - code [ref=e1957]: "[[...]]"
+                    - text: 。
+                  - paragraph [ref=e1958]: 优点：
+                  - list [ref=e1959]:
+                    - listitem [ref=e1960]:
+                      - paragraph [ref=e1961]: 实现简单；
+                    - listitem [ref=e1962]:
+                      - paragraph [ref=e1963]: LLM 自己决定哪些名词值得成为词条；
+                    - listitem [ref=e1964]:
+                      - paragraph [ref=e1965]: 页面结构自然；
+                    - listitem [ref=e1966]:
+                      - paragraph [ref=e1967]: 不需要复杂 NLP。
+                  - paragraph [ref=e1968]: 缺点：
+                  - list [ref=e1969]:
+                    - listitem [ref=e1970]:
+                      - paragraph [ref=e1971]: 有时链接数量不稳定；
+                    - listitem [ref=e1972]:
+                      - paragraph [ref=e1973]: 可能漏掉一些名词；
+                    - listitem [ref=e1974]:
+                      - paragraph [ref=e1975]: 可能链接太多。
+                  - paragraph [ref=e1976]: 你可以在 prompt 里约束：
+                  - generic [ref=e1984]:
+                    - button "复制" [ref=e1985] [cursor=pointer]:
+                      - img [ref=e1986]
+                    - code [ref=e1994]:
+                      - text: Use 8-15 wiki links in [[Article Title]] syntax.
+                      - text: "Only link important fictional entities:"
+                      - text: "- people"
+                      - text: "- places"
+                      - text: "- factions"
+                      - text: "- historical events"
+                      - text: "- religions"
+                      - text: "- artifacts"
+                      - text: "- concepts"
+                      - text: Do not link common nouns.
+                  - separator [ref=e1995]
+                  - heading "方案 B：后处理自动识别名词" [level=2] [ref=e1996]
+                  - paragraph [ref=e1997]: 也可以让模型先生成普通 Markdown，然后再让另一个步骤抽取可链接实体。
+                  - paragraph [ref=e1998]: 例如生成后再调用一次：
+                  - generic [ref=e2006]:
+                    - button "复制" [ref=e2007] [cursor=pointer]:
+                      - img [ref=e2008]
+                    - code [ref=e2016]:
+                      - text: Extract fictional named entities from this article.
+                      - text: "Return JSON:"
+                      - text: "["
+                      - text: "{"
+                      - text: "\"text\": \"Moon Empire\","
+                      - text: "\"type\": \"faction\","
+                      - text: "\"importance\": 0.94"
+                      - text: "}"
+                      - text: "]"
+                  - paragraph [ref=e2017]: 然后前端把这些实体高亮。
+                  - paragraph [ref=e2018]: 优点：
+                  - list [ref=e2019]:
+                    - listitem [ref=e2020]:
+                      - paragraph [ref=e2021]: 可以控制高亮密度；
+                    - listitem [ref=e2022]:
+                      - paragraph [ref=e2023]: 可以做实体类型分类；
+                    - listitem [ref=e2024]:
+                      - paragraph [ref=e2025]:
+                        - text: 可以避免 LLM 在正文里插太多
+                        - code [ref=e2026]: "[[...]]"
+                        - text: 。
+                  - paragraph [ref=e2027]: 缺点：
+                  - list [ref=e2028]:
+                    - listitem [ref=e2029]:
+                      - paragraph [ref=e2030]: 多一次 LLM 调用；
+                    - listitem [ref=e2031]:
+                      - paragraph [ref=e2032]: 更慢；
+                    - listitem [ref=e2033]:
+                      - paragraph [ref=e2034]: 需要处理字符串匹配和歧义。
+                  - paragraph [ref=e2035]: MVP 不建议一开始用这个。先用方案 A。
+                  - separator [ref=e2036]
+                  - heading "我建议的 MVP 设计" [level=1] [ref=e2037]
+                  - heading "Markdown 内部格式" [level=2] [ref=e2038]
+                  - paragraph [ref=e2039]: 保存时就保存带 wiki link 的 Markdown：
+                  - generic [ref=e2047]:
+                    - generic [ref=e2049]:
+                      - generic [ref=e2050]:
+                        - img [ref=e2051]
+                        - text: Markdown
+                      - button "复制" [ref=e2054] [cursor=pointer]:
+                        - img [ref=e2055]
+                    - code [ref=e2063]:
+                      - text: "# Moon Empire"
+                      - text: The **Moon Empire** was the dominant imperial power before the [[War of Seven Ashes]].
+                      - text: Its capital, [[Lunara]], housed the [[Lunar Archive]], where priests of the [[Church of Glass]] recorded artificial memories.
+                      - text: "## Related Articles"
+                      - text: "- [[War of Seven Ashes]]"
+                      - text: "- [[Lunara]]"
+                      - text: "- [[Lunar Archive]]"
+                      - text: "- [[Church of Glass]]"
+                  - paragraph [ref=e2064]: 数据库里也保存解析出的 links：
+                  - generic [ref=e2072]:
+                    - generic [ref=e2074]:
+                      - generic [ref=e2075]:
+                        - img [ref=e2076]
+                        - text: JSON
+                      - button "复制" [ref=e2079] [cursor=pointer]:
+                        - img [ref=e2080]
+                    - code [ref=e2088]:
+                      - text: "{"
+                      - text: "\"title\": \"Moon Empire\","
+                      - text: "\"slug\": \"moon-empire\","
+                      - text: "\"outgoingLinks\": ["
+                      - text: "\"War of Seven Ashes\","
+                      - text: "\"Lunara\","
+                      - text: "\"Lunar Archive\","
+                      - text: "\"Church of Glass\""
+                      - text: "]"
+                      - text: "}"
+                  - separator [ref=e2089]
+                  - heading "前端渲染逻辑" [level=1] [ref=e2090]
+                  - paragraph [ref=e2091]: 你需要一个自定义 Markdown renderer。
+                  - paragraph [ref=e2092]: 核心是把：
+                  - generic [ref=e2100]:
+                    - button "复制" [ref=e2101] [cursor=pointer]:
+                      - img [ref=e2102]
+                    - code [ref=e2110]: "[[Moon Empire]]"
+                  - paragraph [ref=e2111]: 渲染成：
+                  - generic [ref=e2119]:
+                    - generic [ref=e2121]:
+                      - generic [ref=e2122]:
+                        - img [ref=e2123]
+                        - text: TypeScript
+                      - button "复制" [ref=e2126] [cursor=pointer]:
+                        - img [ref=e2127]
+                    - code [ref=e2135]: <WikiLink title="Moon Empire" />
+                  - paragraph [ref=e2136]: 伪代码：
+                  - generic [ref=e2144]:
+                    - generic [ref=e2146]:
+                      - generic [ref=e2147]:
+                        - img [ref=e2148]
+                        - text: TypeScript
+                      - button "复制" [ref=e2151] [cursor=pointer]:
+                        - img [ref=e2152]
+                    - code [ref=e2160]:
+                      - text: "function WikiLink({ title }: { title: string }) {"
+                      - text: const slug = slugify(title)
+                      - text: "const { data } = useArticleStatus(slug)"
+                      - text: "if (data?.exists) {"
+                      - text: return (
+                      - text: "<Link className=\"wiki-link exists\" href={`/wiki/${slug}`}>"
+                      - text: "{title}"
+                      - text: </Link>
+                      - text: )
+                      - text: "}"
+                      - text: return (
+                      - text: "<Link className=\"wiki-link missing\" href={`/wiki/${slug}?generate=1`}>"
+                      - text: "{title}"
+                      - text: </Link>
+                      - text: )
+                      - text: "}"
+                  - paragraph [ref=e2161]: CSS 可以这样：
+                  - generic [ref=e2169]:
+                    - generic [ref=e2171]:
+                      - generic [ref=e2172]:
+                        - img [ref=e2173]
+                        - text: CSS
+                      - button "复制" [ref=e2176] [cursor=pointer]:
+                        - img [ref=e2177]
+                    - code [ref=e2185]:
+                      - text: ".wiki-link.exists {"
+                      - text: "color: #2563eb;"
+                      - text: "text-decoration: underline;"
+                      - text: "}"
+                      - text: ".wiki-link.missing {"
+                      - text: "color: #7c3aed;"
+                      - text: "text-decoration: underline dotted;"
+                      - text: "cursor: pointer;"
+                      - text: "}"
+                      - text: ".wiki-link.generating {"
+                      - text: "opacity: 0.6;"
+                      - text: "pointer-events: none;"
+                      - text: "}"
+                  - separator [ref=e2186]
+                  - heading "动态 loading 流程" [level=1] [ref=e2187]
+                  - heading "路由设计" [level=2] [ref=e2188]
+                  - generic [ref=e2196]:
+                    - button "复制" [ref=e2197] [cursor=pointer]:
+                      - img [ref=e2198]
+                    - code [ref=e2206]: /wiki/[slug]
+                  - paragraph [ref=e2207]: 打开页面时：
+                  - generic [ref=e2215]:
+                    - generic [ref=e2217]:
+                      - generic [ref=e2218]:
+                        - img [ref=e2219]
+                        - text: TypeScript
+                      - button "复制" [ref=e2222] [cursor=pointer]:
+                        - img [ref=e2223]
+                    - code [ref=e2231]: GET /api/articles/:slug
+                  - paragraph [ref=e2232]: 如果文章存在：
+                  - generic [ref=e2240]:
+                    - generic [ref=e2242]:
+                      - generic [ref=e2243]:
+                        - img [ref=e2244]
+                        - text: JSON
+                      - button "复制" [ref=e2247] [cursor=pointer]:
+                        - img [ref=e2248]
+                    - code [ref=e2256]:
+                      - text: "{"
+                      - text: "\"status\": \"exists\","
+                      - text: "\"article\": {"
+                      - text: "\"title\": \"Moon Empire\","
+                      - text: "\"contentMarkdown\": \"...\""
+                      - text: "}"
+                      - text: "}"
+                  - paragraph [ref=e2257]: 如果文章不存在：
+                  - generic [ref=e2265]:
+                    - generic [ref=e2267]:
+                      - generic [ref=e2268]:
+                        - img [ref=e2269]
+                        - text: JSON
+                      - button "复制" [ref=e2272] [cursor=pointer]:
+                        - img [ref=e2273]
+                    - code [ref=e2281]:
+                      - text: "{"
+                      - text: "\"status\": \"missing\","
+                      - text: "\"title\": \"Moon Empire\""
+                      - text: "}"
+                  - paragraph [ref=e2282]:
+                    - text: 前端发现
+                    - code [ref=e2283]: missing
+                    - text: 后，如果 URL 里带
+                    - code [ref=e2284]: generate=1
+                    - text: ，就调用：
+                  - generic [ref=e2292]:
+                    - generic [ref=e2294]:
+                      - generic [ref=e2295]:
+                        - img [ref=e2296]
+                        - text: TypeScript
+                      - button "复制" [ref=e2299] [cursor=pointer]:
+                        - img [ref=e2300]
+                    - code [ref=e2308]: POST /api/articles/generate
+                  - paragraph [ref=e2309]: 请求：
+                  - generic [ref=e2317]:
+                    - generic [ref=e2319]:
+                      - generic [ref=e2320]:
+                        - img [ref=e2321]
+                        - text: JSON
+                      - button "复制" [ref=e2324] [cursor=pointer]:
+                        - img [ref=e2325]
+                    - code [ref=e2333]:
+                      - text: "{"
+                      - text: "\"worldId\": \"default\","
+                      - text: "\"title\": \"Moon Empire\""
+                      - text: "}"
+                  - paragraph [ref=e2334]: 返回生成后的文章。
+                  - separator [ref=e2335]
+                  - heading "更好的体验：进入页面后自动生成" [level=1] [ref=e2336]
+                  - paragraph [ref=e2337]: 用户点击不存在词条后，不需要再点“Generate”。
+                  - paragraph [ref=e2338]: 流程：
+                  - generic [ref=e2346]:
+                    - button "复制" [ref=e2347] [cursor=pointer]:
+                      - img [ref=e2348]
+                    - code [ref=e2356]:
+                      - text: Click [[Glass Cathedral]]
+                      - text: ↓
+                      - text: Route to /wiki/glass-cathedral
+                      - text: ↓
+                      - text: Show skeleton
+                      - text: ↓
+                      - text: POST /api/articles/generate
+                      - text: ↓
+                      - text: Stream article tokens
+                      - text: ↓
+                      - text: Save article
+                      - text: ↓
+                      - text: Render final article
+                  - paragraph [ref=e2357]: 这会非常像 flipbook.page 的体验，只是从视觉生成变成文本生成。
+                  - separator [ref=e2358]
+                  - heading "推荐加 streaming" [level=1] [ref=e2359]
+                  - paragraph [ref=e2360]: 如果 LLM 支持 streaming，体验会好很多。
+                  - paragraph [ref=e2361]: 不要让用户看一个空 loading 5-10 秒，而是边生成边显示：
+                  - generic [ref=e2369]:
+                    - button "复制" [ref=e2370] [cursor=pointer]:
+                      - img [ref=e2371]
+                    - code [ref=e2379]:
+                      - text: "# Glass Cathedral"
+                      - text: The Glass Cathedral is one of the oldest surviving institutions...
+                  - paragraph [ref=e2380]: 生成过程中也可以先禁用页面里的链接，生成完成后再激活。
+                  - separator [ref=e2381]
+                  - heading "生成中的状态管理" [level=1] [ref=e2382]
+                  - paragraph [ref=e2383]: 你需要避免重复生成同一个页面。
+                  - paragraph [ref=e2384]:
+                    - text: 例如用户连续点击三次
+                    - code [ref=e2385]: Glass Cathedral
+                    - text: ，不能生成三个版本。
+                  - paragraph [ref=e2386]: 数据库里可以有一个状态字段：
+                  - generic [ref=e2394]:
+                    - generic [ref=e2396]:
+                      - generic [ref=e2397]:
+                        - img [ref=e2398]
+                        - text: prisma
+                      - button "复制" [ref=e2401] [cursor=pointer]:
+                        - img [ref=e2402]
+                    - code [ref=e2410]:
+                      - text: "model Article {"
+                      - text: id String @id @default(cuid())
+                      - text: worldId String
+                      - text: title String
+                      - text: slug String
+                      - text: status String // draft | generating | ready | error
+                      - text: contentMarkdown String?
+                      - text: summary String?
+                      - text: outgoingLinks String?
+                      - text: createdAt DateTime @default(now())
+                      - text: updatedAt DateTime @updatedAt
+                      - text: "@@unique([worldId, slug])"
+                      - text: "}"
+                  - paragraph [ref=e2411]: 点击不存在词条时：
+                  - list [ref=e2412]:
+                    - listitem [ref=e2413]:
+                      - paragraph [ref=e2414]:
+                        - text: 先创建一条
+                        - code [ref=e2415]: status = generating
+                        - text: 的 article；
+                    - listitem [ref=e2416]:
+                      - paragraph [ref=e2417]:
+                        - text: 生成完成后改成
+                        - code [ref=e2418]: ready
+                        - text: ；
+                    - listitem [ref=e2419]:
+                      - paragraph [ref=e2420]:
+                        - text: 失败则改成
+                        - code [ref=e2421]: error
+                        - text: ；
+                    - listitem [ref=e2422]:
+                      - paragraph [ref=e2423]:
+                        - text: 其他请求看到
+                        - code [ref=e2424]: generating
+                        - text: 时只显示等待状态，不再重复调用 LLM。
+                  - separator [ref=e2425]
+                  - heading "推荐 API 设计" [level=1] [ref=e2426]
+                  - heading "获取文章" [level=2] [ref=e2427]
+                  - generic [ref=e2435]:
+                    - generic [ref=e2437]:
+                      - generic [ref=e2438]:
+                        - img [ref=e2439]
+                        - text: http
+                      - button "复制" [ref=e2442] [cursor=pointer]:
+                        - img [ref=e2443]
+                    - code [ref=e2451]: GET /api/worlds/:worldId/articles/:slug
+                  - paragraph [ref=e2452]: 返回：
+                  - generic [ref=e2460]:
+                    - generic [ref=e2462]:
+                      - generic [ref=e2463]:
+                        - img [ref=e2464]
+                        - text: JSON
+                      - button "复制" [ref=e2467] [cursor=pointer]:
+                        - img [ref=e2468]
+                    - code [ref=e2476]:
+                      - text: "{"
+                      - text: "\"status\": \"ready\","
+                      - text: "\"article\": {"
+                      - text: "\"title\": \"Moon Empire\","
+                      - text: "\"contentMarkdown\": \"...\","
+                      - text: "\"outgoingLinks\": [\"Lunara\", \"War of Seven Ashes\"]"
+                      - text: "}"
+                      - text: "}"
+                  - separator [ref=e2477]
+                  - heading "生成文章" [level=2] [ref=e2478]
+                  - generic [ref=e2486]:
+                    - generic [ref=e2488]:
+                      - generic [ref=e2489]:
+                        - img [ref=e2490]
+                        - text: http
+                      - button "复制" [ref=e2493] [cursor=pointer]:
+                        - img [ref=e2494]
+                    - code [ref=e2502]: POST /api/worlds/:worldId/articles/generate
+                  - paragraph [ref=e2503]: Body：
+                  - generic [ref=e2511]:
+                    - generic [ref=e2513]:
+                      - generic [ref=e2514]:
+                        - img [ref=e2515]
+                        - text: JSON
+                      - button "复制" [ref=e2518] [cursor=pointer]:
+                        - img [ref=e2519]
+                    - code [ref=e2527]:
+                      - text: "{"
+                      - text: "\"title\": \"Glass Cathedral\","
+                      - text: "\"sourceArticle\": \"Moon Empire\""
+                      - text: "}"
+                  - paragraph [ref=e2528]: 返回：
+                  - generic [ref=e2536]:
+                    - generic [ref=e2538]:
+                      - generic [ref=e2539]:
+                        - img [ref=e2540]
+                        - text: JSON
+                      - button "复制" [ref=e2543] [cursor=pointer]:
+                        - img [ref=e2544]
+                    - code [ref=e2552]:
+                      - text: "{"
+                      - text: "\"status\": \"ready\","
+                      - text: "\"article\": {"
+                      - text: "\"title\": \"Glass Cathedral\","
+                      - text: "\"contentMarkdown\": \"...\","
+                      - text: "\"outgoingLinks\": [\"Church of Glass\", \"Lunar Archive\"]"
+                      - text: "}"
+                      - text: "}"
+                  - separator [ref=e2553]
+                  - heading "查询链接状态" [level=2] [ref=e2554]
+                  - paragraph [ref=e2555]: 为了让页面上的链接显示不同颜色，可以批量查状态：
+                  - generic [ref=e2563]:
+                    - generic [ref=e2565]:
+                      - generic [ref=e2566]:
+                        - img [ref=e2567]
+                        - text: http
+                      - button "复制" [ref=e2570] [cursor=pointer]:
+                        - img [ref=e2571]
+                    - code [ref=e2579]: POST /api/worlds/:worldId/articles/status
+                  - paragraph [ref=e2580]: Body：
+                  - generic [ref=e2588]:
+                    - generic [ref=e2590]:
+                      - generic [ref=e2591]:
+                        - img [ref=e2592]
+                        - text: JSON
+                      - button "复制" [ref=e2595] [cursor=pointer]:
+                        - img [ref=e2596]
+                    - code [ref=e2604]:
+                      - text: "{"
+                      - text: "\"titles\": ["
+                      - text: "\"Moon Empire\","
+                      - text: "\"Glass Cathedral\","
+                      - text: "\"War of Seven Ashes\""
+                      - text: "]"
+                      - text: "}"
+                  - paragraph [ref=e2605]: 返回：
+                  - generic [ref=e2613]:
+                    - generic [ref=e2615]:
+                      - generic [ref=e2616]:
+                        - img [ref=e2617]
+                        - text: JSON
+                      - button "复制" [ref=e2620] [cursor=pointer]:
+                        - img [ref=e2621]
+                    - code [ref=e2629]:
+                      - text: "{"
+                      - text: "\"Moon Empire\": \"ready\","
+                      - text: "\"Glass Cathedral\": \"missing\","
+                      - text: "\"War of Seven Ashes\": \"ready\""
+                      - text: "}"
+                  - paragraph [ref=e2630]: 这样页面渲染时就知道哪些词条已有，哪些还没生成。
+                  - separator [ref=e2631]
+                  - heading "页面高亮策略" [level=1] [ref=e2632]
+                  - paragraph [ref=e2633]:
+                    - text: 不要高亮所有名词。
+                    - text: 否则页面会变成一片蓝色，可读性很差。
+                  - paragraph [ref=e2634]: 建议只高亮：
+                  - generic [ref=e2636]:
+                    - table [ref=e2637]:
+                      - rowgroup [ref=e2638]:
+                        - row "类型 示例" [ref=e2639]:
+                          - columnheader "类型" [ref=e2640]
+                          - columnheader "示例" [ref=e2641]
+                      - rowgroup [ref=e2642]:
+                        - row "地点 Lunara, Glass Cathedral" [ref=e2643]:
+                          - cell "地点" [ref=e2644]
+                          - cell "Lunara, Glass Cathedral" [ref=e2645]:
+                            - code [ref=e2646]: Lunara
+                            - text: ","
+                            - code [ref=e2647]: Glass Cathedral
+                        - row "国家/组织 Moon Empire, Church of Glass" [ref=e2648]:
+                          - cell "国家/组织" [ref=e2649]
+                          - cell "Moon Empire, Church of Glass" [ref=e2650]:
+                            - code [ref=e2651]: Moon Empire
+                            - text: ","
+                            - code [ref=e2652]: Church of Glass
+                        - row "人物 Emperor Vael III" [ref=e2653]:
+                          - cell "人物" [ref=e2654]
+                          - cell "Emperor Vael III" [ref=e2655]:
+                            - code [ref=e2656]: Emperor Vael III
+                        - row "历史事件 War of Seven Ashes" [ref=e2657]:
+                          - cell "历史事件" [ref=e2658]
+                          - cell "War of Seven Ashes" [ref=e2659]:
+                            - code [ref=e2660]: War of Seven Ashes
+                        - row "关键概念 Artificial Memory" [ref=e2661]:
+                          - cell "关键概念" [ref=e2662]
+                          - cell "Artificial Memory" [ref=e2663]:
+                            - code [ref=e2664]: Artificial Memory
+                        - row "文物/技术 Lunar Archive, Dream Engine" [ref=e2665]:
+                          - cell "文物/技术" [ref=e2666]
+                          - cell "Lunar Archive, Dream Engine" [ref=e2667]:
+                            - code [ref=e2668]: Lunar Archive
+                            - text: ","
+                            - code [ref=e2669]: Dream Engine
+                    - generic [ref=e2671]:
+                      - button "复制表格":
+                        - img
+                  - paragraph [ref=e2672]: 不要高亮：
+                  - generic [ref=e2674]:
+                    - table [ref=e2675]:
+                      - rowgroup [ref=e2676]:
+                        - row "类型 示例" [ref=e2677]:
+                          - columnheader "类型" [ref=e2678]
+                          - columnheader "示例" [ref=e2679]
+                      - rowgroup [ref=e2680]:
+                        - row "普通名词 city, empire, river" [ref=e2681]:
+                          - cell "普通名词" [ref=e2682]
+                          - cell "city, empire, river" [ref=e2683]
+                        - row "形容词 ancient, sacred" [ref=e2684]:
+                          - cell "形容词" [ref=e2685]
+                          - cell "ancient, sacred" [ref=e2686]
+                        - row "泛称 soldiers, priests, merchants" [ref=e2687]:
+                          - cell "泛称" [ref=e2688]
+                          - cell "soldiers, priests, merchants" [ref=e2689]
+                        - row "太短的词 ash, moon, glass，除非是专有名词" [ref=e2690]:
+                          - cell "太短的词" [ref=e2691]
+                          - cell "ash, moon, glass，除非是专有名词" [ref=e2692]
+                    - generic [ref=e2694]:
+                      - button "复制表格":
+                        - img
+                  - separator [ref=e2695]
+                  - heading "Prompt 示例" [level=1] [ref=e2696]
+                  - paragraph [ref=e2697]: 你可以这样要求模型：
+                  - generic [ref=e2705]:
+                    - button "复制" [ref=e2706] [cursor=pointer]:
+                      - img [ref=e2707]
+                    - code [ref=e2715]:
+                      - text: You are writing an article for a fictional wiki.
+                      - text: Output Markdown only.
+                      - text: "Article title:"
+                      - text: "{{title}}"
+                      - text: "World canon:"
+                      - text: "{{canonSummary}}"
+                      - text: "Relevant existing articles:"
+                      - text: "{{relatedArticles}}"
+                      - text: "Rules:"
+                      - text: "- Write in a neutral encyclopedia style."
+                      - text: "- Use [[WikiLink]] syntax for important fictional entities."
+                      - text: "- Include 8-15 wiki links."
+                      - text: "- Do not link ordinary nouns."
+                      - text: "- Do not use real-world people, places, brands, or copyrighted fictional settings."
+                      - text: "- Maintain consistency with existing canon."
+                      - text: "- Include these sections:"
+                      - text: "- Summary"
+                      - text: "- History"
+                      - text: "- Significance"
+                      - text: "- Related Articles"
+                  - separator [ref=e2716]
+                  - heading "一个很好的细节：预览卡片" [level=1] [ref=e2717]
+                  - paragraph [ref=e2718]: 点击前可以 hover 显示：
+                  - generic [ref=e2726]:
+                    - button "复制" [ref=e2727] [cursor=pointer]:
+                      - img [ref=e2728]
+                    - code [ref=e2736]:
+                      - text: Glass Cathedral
+                      - text: "Status: Not generated yet"
+                      - text: Click to generate this article.
+                  - paragraph [ref=e2737]: 已有页面则显示 summary：
+                  - generic [ref=e2745]:
+                    - button "复制" [ref=e2746] [cursor=pointer]:
+                      - img [ref=e2747]
+                    - code [ref=e2755]:
+                      - text: Moon Empire
+                      - text: A collapsed imperial state that ruled western Elyndor for 600 years.
+                  - paragraph [ref=e2756]: 这会非常像 Wikipedia 的 page preview。
+                  - paragraph [ref=e2757]: 实现上：
+                  - generic [ref=e2765]:
+                    - generic [ref=e2767]:
+                      - generic [ref=e2768]:
+                        - img [ref=e2769]
+                        - text: TypeScript
+                      - button "复制" [ref=e2772] [cursor=pointer]:
+                        - img [ref=e2773]
+                    - code [ref=e2781]: <WikiLinkTooltip title="Glass Cathedral" status="missing" />
+                  - separator [ref=e2782]
+                  - heading "推荐的用户体验" [level=1] [ref=e2783]
+                  - paragraph [ref=e2784]: 我建议设计成这样：
+                  - generic [ref=e2792]:
+                    - button "复制" [ref=e2793] [cursor=pointer]:
+                      - img [ref=e2794]
+                    - code [ref=e2802]:
+                      - text: "# Moon Empire"
+                      - text: The Moon Empire was destroyed during the War of Seven Ashes.
+                      - text: Its surviving priests later founded the Church of Glass.
+                      - text: "Related Articles:"
+                      - text: "- War of Seven Ashes"
+                      - text: "- Church of Glass"
+                      - text: "- Lunar Archive"
+                  - paragraph [ref=e2803]: 视觉上：
+                  - list [ref=e2804]:
+                    - listitem [ref=e2805]:
+                      - paragraph [ref=e2806]: 已有词条：蓝色实线；
+                    - listitem [ref=e2807]:
+                      - paragraph [ref=e2808]: 未生成词条：紫色虚线；
+                    - listitem [ref=e2809]:
+                      - paragraph [ref=e2810]: 正在生成：灰色 shimmer；
+                    - listitem [ref=e2811]:
+                      - paragraph [ref=e2812]: 失败：红色虚线，点击重试。
+                  - separator [ref=e2813]
+                  - heading "最小实现优先级" [level=1] [ref=e2814]
+                  - paragraph [ref=e2815]: 建议你按这个顺序做：
+                  - list [ref=e2816]:
+                    - listitem [ref=e2817]:
+                      - paragraph [ref=e2818]:
+                        - strong [ref=e2819]:
+                          - text: 支持
+                          - code [ref=e2820]: "[[WikiLink]]"
+                          - text: 解析和渲染
+                    - listitem [ref=e2821]:
+                      - paragraph [ref=e2822]:
+                        - strong [ref=e2823]:
+                          - text: 点击 wiki link 跳转
+                          - code [ref=e2824]: /wiki/[slug]
+                    - listitem [ref=e2825]:
+                      - paragraph [ref=e2826]:
+                        - strong [ref=e2827]: 不存在页面自动生成
+                    - listitem [ref=e2828]:
+                      - paragraph [ref=e2829]:
+                        - strong [ref=e2830]: 生成时 loading skeleton
+                    - listitem [ref=e2831]:
+                      - paragraph [ref=e2832]:
+                        - strong [ref=e2833]: 保存生成结果到 SQLite
+                    - listitem [ref=e2834]:
+                      - paragraph [ref=e2835]:
+                        - strong [ref=e2836]: 批量查询 link status，区分已有/未生成
+                    - listitem [ref=e2837]:
+                      - paragraph [ref=e2838]:
+                        - strong [ref=e2839]: streaming 输出
+                    - listitem [ref=e2840]:
+                      - paragraph [ref=e2841]:
+                        - strong [ref=e2842]: hover preview
+                    - listitem [ref=e2843]:
+                      - paragraph [ref=e2844]:
+                        - strong [ref=e2845]: 实体自动抽取和自动高亮
+                  - paragraph [ref=e2846]: 第 1-5 步做完，这个 demo 的核心体验就成立了。
+                  - separator [ref=e2847]
+                  - heading "我的判断" [level=1] [ref=e2848]
+                  - paragraph [ref=e2849]: 这个设计非常适合你的项目。
+                  - paragraph [ref=e2850]: 它的核心体验可以概括成：
+                  - blockquote [ref=e2851]:
+                    - paragraph [ref=e2852]:
+                      - text: 每一个高亮名词都是一个尚未展开的世界节点。
+                      - text: 点击它，系统就把这个节点“实体化”为一个 wiki 页面。
+                  - paragraph [ref=e2853]:
+                    - text: 这比普通聊天式 worldbuilding 更强，因为用户是在
+                    - strong [ref=e2854]: 浏览和发现
+                    - text: ，不是在单轮对话里要求 AI 写设定。
+          - generic [ref=e2855]:
+            - generic:
+              - generic:
+                - button:
+                  - img
+            - generic [ref=e2860]:
+              - generic [ref=e2864]:
+                - button "添加文件等" [ref=e2867] [cursor=pointer]:
+                  - img
+                - textbox "与 ChatGPT 聊天" [active] [ref=e2870]:
+                  - paragraph [ref=e2871]: 给“ChatGPT“发送消息
+                - generic [ref=e2873]:
+                  - button "开始听写" [ref=e2874] [cursor=pointer]:
+                    - img
+                  - button "启动语音功能" [ref=e2878] [cursor=pointer]:
+                    - img [ref=e2880]
+                    - generic [ref=e2882]: 语音
+              - button [ref=e2883]
+              - button [ref=e2884]
+            - generic [ref=e2890]: ChatGPT 是一款 AI 工具且可能会犯错，请核查重要信息。
+  - alert [ref=e2891]
+  - status [ref=e2892]
