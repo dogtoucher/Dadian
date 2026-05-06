@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
-  title: "Loreloom",
+  title: "Dadian",
   description: "为设定世界生成、连接和维护百科词条。",
-  applicationName: "Loreloom",
+  applicationName: "Dadian",
   formatDetection: {
     telephone: false
   }

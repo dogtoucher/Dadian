@@ -1,4 +1,6 @@
-# Loreloom (织典)
+# Dadian (大典)
+
+Query a world. Watch its encyclopedia unfold.
 
 本地运行的世界观 Wiki / canon workbench。用户输入世界背景并查询入口词条后，应用会整理主词条；词条中的 `[[专名]]` 会变成可点击 wiki 链接，未收录的词条会在打开后自动整理并写入本地 SQLite。
 

@@ -15,9 +15,9 @@ export default function Home() {
     <main className="home home-portal" id="main-content">
       <header className="home-header home-portal-header">
         <div>
-          <h1 className="brand">织典</h1>
+          <h1 className="brand">大典</h1>
           <p className="subtitle">
-            输入一个世界背景和想查询的入口词条，让人物、地点、组织和事件自然延展成一座可追溯的百科。
+            查询一个世界，看它的百科自然展开。
           </p>
         </div>
       </header>

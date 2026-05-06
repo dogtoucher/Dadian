@@ -21,7 +21,7 @@ export async function generateMetadata({
   const title = article?.title ?? slugToTitle(slug);
 
   return {
-    title: `${title} - ${world?.title ?? "Loreloom"}`,
+    title: `${title} - ${world?.title ?? "Dadian"}`,
     description:
       article?.summary || world?.canonSummary || "设定世界中的百科词条。"
   };
@@ -75,7 +75,7 @@ export default async function WikiArticlePage({
       <section className="wiki-main">
         <header className="wiki-topbar">
           <Link href={homePath()} className="wiki-wordmark">
-            织典
+            大典
           </Link>
           <span className="wiki-world-title">{world.title}</span>
           <WikiSearch worldId={worldId} />
