@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { cleanMetaNarration, titleToSlug } from "@/lib/wiki";
+import { wikiTitlePath } from "@/lib/routes";
+import { cleanMetaNarration } from "@/lib/wiki";
 
 export function WikiInline({
   text,
@@ -29,7 +30,7 @@ function renderInline(text: string, worldId: string): React.ReactNode[] {
       parts.push(
         <Link
           className="wiki-link"
-          href={`/world/${worldId}/wiki/${titleToSlug(title)}`}
+          href={wikiTitlePath(worldId, title)}
           key={`${title}-${match.index}`}
         >
           {title}
@@ -63,7 +64,7 @@ export function WikiMarkdown({
   worldId: string;
   worldTitle?: string;
 }) {
-  const blocks = markdown.split("\n");
+  const blocks = removeGeneratedRelatedSection(markdown).split("\n");
   const nodes: React.ReactNode[] = [];
   let listItems: string[] = [];
 
@@ -113,4 +114,40 @@ export function WikiMarkdown({
   flushList();
 
   return <div className="markdown">{nodes}</div>;
+}
+
+function removeGeneratedRelatedSection(markdown: string) {
+  const relatedHeadings = new Set([
+    "相关条目",
+    "相关页面",
+    "参见",
+    "另见",
+    "see also"
+  ]);
+  const lines = markdown.split("\n");
+  const kept: string[] = [];
+  let skippingLevel: number | null = null;
+
+  for (const line of lines) {
+    const heading = line.trim().match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      const level = heading[1].length;
+      const title = heading[2].trim().replace(/[:：]$/, "").toLowerCase();
+
+      if (skippingLevel !== null && level <= skippingLevel) {
+        skippingLevel = null;
+      }
+
+      if (relatedHeadings.has(title)) {
+        skippingLevel = level;
+        continue;
+      }
+    }
+
+    if (skippingLevel === null) {
+      kept.push(line);
+    }
+  }
+
+  return kept.join("\n").trim();
 }

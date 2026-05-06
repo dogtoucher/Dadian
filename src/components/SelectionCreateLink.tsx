@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { titleToSlug } from "@/lib/wiki";
+import { constraintsApiPath, wikiTitlePath } from "@/lib/routes";
 
 type SelectionState = {
   text: string;
@@ -10,7 +10,15 @@ type SelectionState = {
   y: number;
 };
 
-export function SelectionCreateLink({ worldId }: { worldId: string }) {
+type Action = "open" | "reject";
+
+export function SelectionCreateLink({
+  worldId,
+  isEditMode = false
+}: {
+  worldId: string;
+  isEditMode?: boolean;
+}) {
   const router = useRouter();
   const [selection, setSelection] = useState<SelectionState | null>(null);
 
@@ -19,7 +27,12 @@ export function SelectionCreateLink({ worldId }: { worldId: string }) {
       const selected = window.getSelection();
       const text = selected?.toString().replace(/\s+/g, " ").trim() ?? "";
 
-      if (!selected || selected.rangeCount === 0 || text.length < 2 || text.length > 40) {
+      if (
+        !selected ||
+        selected.rangeCount === 0 ||
+        text.length < 2 ||
+        text.length > 40
+      ) {
         setSelection(null);
         return;
       }
@@ -59,22 +72,56 @@ export function SelectionCreateLink({ worldId }: { worldId: string }) {
     return null;
   }
 
+  const handleAction = async (action: Action) => {
+    if (action === "open") {
+      router.push(wikiTitlePath(worldId, selection.text));
+    } else if (action === "reject") {
+      try {
+        await fetch(constraintsApiPath(worldId), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            scopeType: "world",
+            constraintType: "negative",
+            text: selection.text,
+            strength: "hard"
+          })
+        });
+      } catch {
+        // silently ignore
+      }
+    }
+
+    window.getSelection()?.removeAllRanges();
+    setSelection(null);
+  };
+
   return (
-    <button
-      className="selection-link-button"
-      onMouseDown={(event) => event.preventDefault()}
-      onClick={() => {
-        router.push(`/world/${worldId}/wiki/${titleToSlug(selection.text)}`);
-        window.getSelection()?.removeAllRanges();
-        setSelection(null);
-      }}
+    <div
+      className="selection-menu"
       style={{
         left: selection.x,
         top: selection.y
       }}
-      type="button"
     >
-      打开「{selection.text}」
-    </button>
+      <button
+        className="selection-link-button"
+        onMouseDown={(event) => event.preventDefault()}
+        onClick={() => handleAction("open")}
+        type="button"
+      >
+        打开「{selection.text}」
+      </button>
+      {isEditMode && (
+        <button
+          className="selection-reject-button"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => handleAction("reject")}
+          type="button"
+        >
+          拒绝方向
+        </button>
+      )}
+    </div>
   );
 }

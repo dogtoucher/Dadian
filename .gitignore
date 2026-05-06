@@ -7,4 +7,6 @@ dist
 tsconfig.tsbuildinfo
 data/*.db
 data/*.db-*
+.playwright-mcp/
+infinite-read-css-restored.png
 .DS_Store

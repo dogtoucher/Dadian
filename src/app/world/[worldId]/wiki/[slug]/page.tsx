@@ -1,17 +1,37 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { ArticleClient } from "@/components/ArticleClient";
 import { WikiSearch } from "@/components/WikiSearch";
-import { WikiInline } from "@/components/WikiMarkdown";
 import { getArticle, getRelatedStatuses, getWorld } from "@/lib/db";
+import { homePath } from "@/lib/routes";
 import { slugToTitle } from "@/lib/wiki";
 import type { ArticleStatus } from "@/lib/wiki";
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ worldId: string; slug: string }>;
+}): Promise<Metadata> {
+  const { worldId, slug } = await params;
+  const world = getWorld(worldId);
+  const article = world ? getArticle(worldId, slug) : null;
+  const title = article?.title ?? slugToTitle(slug);
+
+  return {
+    title: `${title} - ${world?.title ?? "Loreloom"}`,
+    description:
+      article?.summary || world?.canonSummary || "设定世界中的百科词条。"
+  };
+}
+
 export default async function WikiArticlePage({
   params
 }: {
   params: Promise<{ worldId: string; slug: string }>;
+  searchParams?: Promise<{ mode?: string }>;
 }) {
   const { worldId, slug } = await params;
   const world = getWorld(worldId);
@@ -51,25 +71,13 @@ export default async function WikiArticlePage({
   })();
 
   return (
-    <main className="wiki-layout">
-      <aside className="wiki-sidebar">
-        <h1>{world.title}</h1>
-        <p>
-          <WikiInline
-            text={world.canonSummary}
-            worldId={worldId}
-            worldTitle={world.title}
-          />
-        </p>
-        <a className="secondary-button" href="/">
-          新世界
-        </a>
-      </aside>
+    <main className="wiki-layout" id="main-content">
       <section className="wiki-main">
         <header className="wiki-topbar">
-          <a href="/" className="wiki-wordmark">
-            Infinite Lore Wiki
-          </a>
+          <Link href={homePath()} className="wiki-wordmark">
+            织典
+          </Link>
+          <span className="wiki-world-title">{world.title}</span>
           <WikiSearch worldId={worldId} />
         </header>
         <ArticleClient

@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { titleToSlug } from "@/lib/wiki";
+import { wikiTitlePath } from "@/lib/routes";
 
 export function WikiSearch({ worldId }: { worldId: string }) {
   const router = useRouter();
@@ -14,7 +14,7 @@ export function WikiSearch({ worldId }: { worldId: string }) {
     if (!title) {
       return;
     }
-    router.push(`/world/${worldId}/wiki/${titleToSlug(title)}`);
+    router.push(wikiTitlePath(worldId, title));
   }
 
   return (

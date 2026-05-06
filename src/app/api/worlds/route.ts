@@ -26,10 +26,10 @@ export async function POST(request: Request) {
     }
 
     const initial = await generateInitialWorld(seed, entryTitle);
-    const world = createWorld(seed, initial.worldTitle, initial.canonSummary);
+    const world = createWorld(seed, initial.worldTitle, initial.canonSummary, entryTitle);
 
     if (!world) {
-      throw new Error("世界创建失败。");
+      throw new Error("查询失败。");
     }
 
     upsertReadyArticle({
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     });
   } catch (err) {
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : "创建世界失败。" },
+      { error: err instanceof Error ? err.message : "查询失败。" },
       { status: 500 }
     );
   }
