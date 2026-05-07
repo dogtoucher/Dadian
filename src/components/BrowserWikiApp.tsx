@@ -223,7 +223,9 @@ export function BrowserWikiApp() {
       <header className="home-header home-portal-header">
         <div>
           <h1 className="brand">大典</h1>
-          <p className="subtitle">浏览器本地运行的互动 wiki。</p>
+          <p className="subtitle">
+            输入一个世界设定，生成一座可以继续扩展的百科。
+          </p>
         </div>
         <div className="home-utilitybar" aria-label="本地工具">
           <ProviderSettings />
@@ -254,12 +256,12 @@ export function BrowserWikiApp() {
             ))}
           </div>
           <label className="field">
-            <span>查询范围</span>
+            <span>世界设定</span>
             <textarea
               className="seed-input"
               minLength={12}
               onChange={(event) => setSeed(event.target.value)}
-              placeholder="写下这个世界的背景、时代、核心冲突、社会规则或故事气质。"
+              placeholder="写下这个世界的时代、背景、核心冲突、社会规则或故事气质。"
               required
               value={seed}
             />
@@ -277,7 +279,7 @@ export function BrowserWikiApp() {
             />
           </label>
           <button className="primary-button" disabled={loading} type="submit">
-            {loading ? "正在查询..." : "查询词条"}
+            {loading ? "正在生成..." : "生成入口词条"}
           </button>
           {error ? <p className="error-text">{error}</p> : null}
         </form>

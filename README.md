@@ -1,20 +1,53 @@
 # Dadian
 
-Browser-first worldbuilding wiki powered by your own LLM key.
+Generate a living encyclopedia for a fictional world.
 
-Dadian turns a short world premise into a growing encyclopedia. Enter a world seed and an entry title, generate the first article, then follow `[[WikiLink]]` references to expand the setting page by page. Data stays in the browser unless you export it.
+Dadian starts with a world premise and an entry title, then builds a wiki-style archive one article at a time. Follow `[[WikiLink]]` references to expand people, places, institutions, events, technologies, documents, and unresolved cases into a connected setting bible.
 
-## Features
+## Highlights
 
-- Static browser app deployable to GitHub Pages
-- BYOK model access through OpenAI-compatible `/chat/completions`
-- Local persistence with IndexedDB
-- Wiki-style article rendering with clickable `[[links]]`
-- Missing article generation from the current world context
-- JSON import and export for portable local saves
-- API keys kept out of exports and local wiki data
+- Generate encyclopedia-style world entries from a short premise
+- Expand the archive by clicking linked terms
+- Keep each world in the current browser
+- Import and export JSON save files
+- Connect your own OpenAI-compatible model provider
+- Deploy as a static site
 
-## Browser App
+## Use
+
+1. Open Dadian.
+2. Connect a model provider from **连接模型**.
+3. Describe the world you want to explore.
+4. Choose the first entry title.
+5. Generate the entry article.
+6. Click linked terms to expand the encyclopedia.
+7. Export a JSON backup when you want to move or preserve a world.
+
+## Model Providers
+
+Dadian calls OpenAI-compatible chat completion endpoints:
+
+```text
+POST {baseUrl}/chat/completions
+```
+
+You provide:
+
+- provider URL
+- model name
+- API key
+
+The API key is stored in browser storage only. It is not included in JSON exports.
+
+Some providers block browser-origin requests. Those providers require a compatible endpoint, gateway, or proxy that allows CORS.
+
+## Local Data
+
+Dadian stores worlds and articles in the browser with IndexedDB. No account or server database is required.
+
+Use **导入 / 导出** to create portable JSON save files.
+
+## Development
 
 Install dependencies:
 
@@ -22,7 +55,13 @@ Install dependencies:
 npm install
 ```
 
-Build the static app:
+Run locally:
+
+```bash
+npm run dev
+```
+
+Build:
 
 ```bash
 npm run build
@@ -34,73 +73,25 @@ The static site is written to:
 dist-browser/
 ```
 
-Deploy `dist-browser/` to GitHub Pages, Cloudflare Pages, Netlify, Vercel Static, or any static file host.
-
-For local preview:
-
-```bash
-npm run preview
-```
-
-## Using Dadian
-
-1. Open the app.
-2. Use **连接模型** to enter an OpenAI-compatible provider URL, model name, and API key.
-3. Enter a world premise and an entry title.
-4. Generate the entry article.
-5. Click `[[linked terms]]` to create and expand more wiki pages.
-6. Use **导入 / 导出** to back up or move your local world data.
-
-API keys are stored only in browser storage:
-
-- `sessionStorage` by default
-- `localStorage` only if explicitly selected
-- never included in JSON exports
-
-## Provider Compatibility
-
-Dadian uses the OpenAI-compatible chat completions shape:
-
-```text
-POST {baseUrl}/chat/completions
-```
-
-The browser app can call providers that allow browser CORS requests. Providers that block browser-origin requests require an optional proxy.
-
-## Development
-
-Run the local development server:
-
-```bash
-npm run dev
-```
-
-Run checks:
+Check the project:
 
 ```bash
 npm run typecheck
 npm run lint
 npm test
-npm run build
 ```
 
-The production build is a static Vite app.
+## Deployment
 
-## Data Model
+The included GitHub Actions workflow builds the static app and deploys `dist-browser/` to GitHub Pages.
 
-The browser app stores wiki data in IndexedDB:
+In the repository settings, set Pages source to:
 
-- worlds
-- articles
-- entities
-- aliases
-- facts
-- relations
-- constraints
-- summaries
-- generation runs
+```text
+GitHub Actions
+```
 
-Portable saves use a JSON package format designed to exclude provider secrets.
+Then push to `main`.
 
 ## License
 
