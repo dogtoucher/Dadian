@@ -1,4 +1,4 @@
-import type { ChatMessage } from "../llm/client";
+import type { ChatMessage } from "../llm/provider";
 
 export const extractCanonPrompt = {
   name: "extract_canon" as const,

@@ -1,4 +1,4 @@
-import type { ChatMessage } from "../llm/client";
+import type { ChatMessage } from "../llm/provider";
 import type { World, ContextArticle } from "../wiki/titles";
 
 const ANTI_META_RULES = `- 只输出指定语言的 Markdown 正文，不要解释。
