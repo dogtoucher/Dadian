@@ -23,6 +23,10 @@ type LocalArticlePayload =
   | { status: "ready"; world: World; article: Article }
   | { status: "missing"; world: World; title: string; slug: string };
 
+type AppRoute =
+  | { name: "home" }
+  | { name: "article"; worldId: string; slug: string };
+
 const DEFAULT_WORLDS = [
   {
     title: "永乐大典",
@@ -46,6 +50,7 @@ export function BrowserWikiApp() {
   );
   const [worlds, setWorlds] = useState<World[]>([]);
   const [payload, setPayload] = useState<LocalArticlePayload>({ status: "empty" });
+  const [route, setRoute] = useState<AppRoute>(() => parseHashRoute());
   const [seed, setSeed] = useState("");
   const [entryTitle, setEntryTitle] = useState("");
   const [loading, setLoading] = useState(false);
@@ -60,17 +65,54 @@ export function BrowserWikiApp() {
     storage.listWorlds().then(setWorlds).catch(() => null);
   }, [storage]);
 
-  async function openWorld(world: World) {
+  useEffect(() => {
+    const onHashChange = () => setRoute(parseHashRoute());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  useEffect(() => {
+    async function loadRoute() {
+      if (route.name === "home") {
+        setPayload({ status: "empty" });
+        return;
+      }
+
+      const world = await database.worlds.get(route.worldId);
+      if (!world) {
+        setPayload({ status: "empty" });
+        return;
+      }
+
+      await loadArticle(world, route.slug);
+    }
+
+    void loadRoute();
+  }, [database, route]);
+
+  function goHome() {
+    window.location.hash = "#/";
+  }
+
+  function openWorld(world: World) {
     const slug = world.entrySlug ?? "";
     if (!slug) {
-      setPayload({ status: "empty" });
+      goHome();
       return;
     }
 
-    await openArticle(world, slug);
+    navigateToArticle(world.id, slug);
   }
 
-  async function openArticle(world: World, slugOrTitle: string) {
+  function openArticle(world: World, slugOrTitle: string) {
+    navigateToArticle(world.id, titleToSlug(slugOrTitle));
+  }
+
+  function navigateToArticle(worldId: string, slug: string) {
+    window.location.hash = `#/world/${encodeURIComponent(worldId)}/wiki/${encodeURIComponent(slug)}`;
+  }
+
+  async function loadArticle(world: World, slugOrTitle: string) {
     const slug = titleToSlug(slugOrTitle);
     const article = await database.articles
       .where("[worldId+slug]")
@@ -151,8 +193,8 @@ export function BrowserWikiApp() {
 
       setSeed("");
       setEntryTitle("");
-      setPayload({ status: "ready", world, article });
       await refreshWorlds();
+      navigateToArticle(world.id, article.slug);
     } catch (err) {
       setError(err instanceof Error ? err.message : "查询失败。");
     } finally {
@@ -206,7 +248,7 @@ export function BrowserWikiApp() {
       };
 
       await database.articles.put(article);
-      setPayload({ status: "ready", world: payload.world, article });
+      navigateToArticle(payload.world.id, article.slug);
     } catch (err) {
       setError(err instanceof Error ? err.message : "生成失败。");
     } finally {
@@ -214,9 +256,73 @@ export function BrowserWikiApp() {
     }
   }
 
-  const currentWorld = payload.status === "ready" || payload.status === "missing"
-    ? payload.world
-    : null;
+  if (route.name === "article") {
+    return (
+      <main className="wiki-layout" id="main-content">
+        <section className="wiki-main">
+          <header className="wiki-topbar">
+            <button className="wiki-wordmark local-nav-button" onClick={goHome} type="button">
+              大典
+            </button>
+            {payload.status === "ready" || payload.status === "missing" ? (
+              <span className="wiki-world-title">{payload.world.title}</span>
+            ) : null}
+          </header>
+
+          {payload.status === "ready" ? (
+            <article className="article">
+              <header className="article-header">
+                <div className="article-namespace">词条</div>
+                <h2>{payload.article.title}</h2>
+                <p className="article-summary">
+                  {cleanMetaNarration(payload.article.summary, payload.world.title)}
+                </p>
+              </header>
+              <div className="article-body">
+                <LocalWikiMarkdown
+                  markdown={payload.article.markdown}
+                  onOpenTitle={(title) => openArticle(payload.world, title)}
+                  worldTitle={payload.world.title}
+                />
+              </div>
+            </article>
+          ) : null}
+
+          {payload.status === "missing" ? (
+            <article className="article article-draft">
+              <header className="article-header">
+                <div className="article-namespace">{payload.world.title}</div>
+                <h2>{payload.title}</h2>
+                <p className="article-summary">这个词条尚未收录。</p>
+              </header>
+              <button
+                className="primary-button"
+                disabled={loading}
+                onClick={generateMissingArticle}
+                type="button"
+              >
+                {loading ? "正在整理..." : "整理这个词条"}
+              </button>
+              {error ? <p className="error-text">{error}</p> : null}
+            </article>
+          ) : null}
+
+          {payload.status === "empty" ? (
+            <article className="article article-draft">
+              <header className="article-header">
+                <div className="article-namespace">未找到</div>
+                <h2>词条不可用</h2>
+                <p className="article-summary">这个本地世界或词条不存在。</p>
+              </header>
+              <button className="secondary-button" onClick={goHome} type="button">
+                返回首页
+              </button>
+            </article>
+          ) : null}
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="home local-browser-shell" id="main-content">
@@ -291,7 +397,7 @@ export function BrowserWikiApp() {
             <button
               className="secondary-button"
               key={world.id}
-              onClick={() => void openWorld(world)}
+              onClick={() => openWorld(world)}
               type="button"
             >
               {world.title}
@@ -299,45 +405,22 @@ export function BrowserWikiApp() {
           ))}
         </section>
       ) : null}
-
-      {payload.status === "ready" ? (
-        <article className="article local-article">
-          <header className="article-header">
-            <div className="article-namespace">词条</div>
-            <h2>{payload.article.title}</h2>
-            <p className="article-summary">
-              {cleanMetaNarration(payload.article.summary, payload.world.title)}
-            </p>
-          </header>
-          <div className="article-body">
-            <LocalWikiMarkdown
-              markdown={payload.article.markdown}
-              onOpenTitle={(title) => void openArticle(payload.world, title)}
-              worldTitle={payload.world.title}
-            />
-          </div>
-        </article>
-      ) : null}
-
-      {payload.status === "missing" ? (
-        <article className="article article-draft local-article">
-          <header className="article-header">
-            <div className="article-namespace">{currentWorld?.title}</div>
-            <h2>{payload.title}</h2>
-            <p className="article-summary">这个词条尚未收录。</p>
-          </header>
-          <button
-            className="primary-button"
-            disabled={loading}
-            onClick={generateMissingArticle}
-            type="button"
-          >
-            {loading ? "正在整理..." : "整理这个词条"}
-          </button>
-        </article>
-      ) : null}
     </main>
   );
+}
+
+function parseHashRoute(): AppRoute {
+  const hash = window.location.hash.replace(/^#/, "") || "/";
+  const parts = hash.split("/").filter(Boolean);
+  if (parts[0] === "world" && parts[1] && parts[2] === "wiki" && parts[3]) {
+    return {
+      name: "article",
+      worldId: decodeURIComponent(parts[1]),
+      slug: decodeURIComponent(parts[3])
+    };
+  }
+
+  return { name: "home" };
 }
 
 type InitialWorld = {
