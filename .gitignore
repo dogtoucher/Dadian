@@ -1,12 +1,11 @@
 node_modules
-.next
-out
 dist
+dist-browser
+.codex/
 *.log
 .env*.local
 tsconfig.tsbuildinfo
-data/*.db
-data/*.db-*
+data/
 .playwright-mcp/
 infinite-read-css-restored.png
 .DS_Store
