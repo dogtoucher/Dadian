@@ -1,98 +1,67 @@
 # Dadian
 
-Generate a living encyclopedia for a fictional world.
+Build a living encyclopedia for any fictional world, directly in your browser.
 
-Dadian starts with a world premise and an entry title, then builds a wiki-style archive one article at a time. Follow `[[WikiLink]]` references to expand people, places, institutions, events, technologies, documents, and unresolved cases into a connected setting bible.
+Dadian starts with a premise and an entry title, then grows a wiki one article at a time. Click linked names, places, institutions, events, technologies, documents, or unresolved cases to keep expanding the archive.
 
-## Highlights
+## What It Does
 
-- Generate encyclopedia-style world entries from a short premise
-- Expand the archive by clicking linked terms
-- Keep each world in the current browser
-- Import and export JSON save files
-- Connect your own OpenAI-compatible model provider
-- Deploy as a static site
+- Generates quiet encyclopedia-style entries from a short world premise
+- Expands the archive through clickable `[[WikiLink]]` references
+- Keeps your worlds in the current browser
+- Extracts facts into a reviewable memory layer
+- Lets you confirm, reject, dispute, or lock facts as canon
+- Imports and exports portable JSON save files
+- Connects to OpenAI-compatible model providers with your own API key
 
-## Use
+## Try It
 
 1. Open Dadian.
 2. Connect a model provider from **连接模型**.
 3. Describe the world you want to explore.
 4. Choose the first entry title.
 5. Generate the entry article.
-6. Click linked terms to expand the encyclopedia.
-7. Export a JSON backup when you want to move or preserve a world.
+6. Open **设定记忆** on an article to review extracted facts.
+7. Click wiki links to continue expanding the world.
 
 ## Model Providers
 
-Dadian calls OpenAI-compatible chat completion endpoints:
+Dadian includes presets for:
 
-```text
-POST {baseUrl}/chat/completions
-```
+- OpenAI
+- DeepSeek
+- OpenRouter
+- Custom OpenAI-compatible endpoints
 
-You provide:
+Your API key stays in your browser. It is not included in exported save files.
 
-- provider URL
-- model name
-- API key
+Some providers block direct browser requests. If a provider does not allow browser-origin traffic, use a compatible gateway or proxy that supports CORS.
 
-The API key is stored in browser storage only. It is not included in JSON exports.
+## 中文说明
 
-Some providers block browser-origin requests. Those providers require a compatible endpoint, gateway, or proxy that allows CORS.
+Dadian（大典）是在浏览器里运行的架空世界百科生成器。
 
-## Local Data
+你输入一个世界设定和入口词条，它会生成第一篇百科条目；条目中的 `[[专名]]` 可以继续打开并生成新的词条。Dadian 还会从正文里抽取事实，形成可审核的“设定记忆”。你可以确认、拒绝、标记争议，或把事实锁定为正典，让后续生成更一致。
 
-Dadian stores worlds and articles in the browser with IndexedDB. No account or server database is required.
+### 适合用来
 
-Use **导入 / 导出** to create portable JSON save files.
+- 搭建小说、游戏、TRPG、影视项目的世界观档案
+- 逐步扩展人物、地点、组织、事件、技术和文献
+- 保存可迁移的本地世界资料
+- 在没有后端账号和数据库的情况下维护设定
 
-## Development
+### 使用方式
 
-Install dependencies:
+1. 打开 Dadian。
+2. 在 **连接模型** 中选择 OpenAI、DeepSeek、OpenRouter 或自定义服务。
+3. 输入世界设定和入口词条。
+4. 生成入口词条。
+5. 在词条页打开 **设定记忆**，审核抽取出的事实。
+6. 点击正文中的链接，继续扩展百科。
+7. 需要备份或迁移时，通过 **导入 / 导出** 保存 JSON。
 
-```bash
-npm install
-```
+## More
 
-Run locally:
-
-```bash
-npm run dev
-```
-
-Build:
-
-```bash
-npm run build
-```
-
-The static site is written to:
-
-```text
-dist-browser/
-```
-
-Check the project:
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-```
-
-## Deployment
-
-The included GitHub Actions workflow builds the static app and deploys `dist-browser/` to GitHub Pages.
-
-In the repository settings, set Pages source to:
-
-```text
-GitHub Actions
-```
-
-Then push to `main`.
-
-## License
+Technical notes are kept out of this product README. See [TECHNICAL.md](TECHNICAL.md) for architecture, local development, storage, deployment, and provider details.
 
 No license has been declared yet.

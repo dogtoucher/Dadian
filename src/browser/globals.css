@@ -722,6 +722,39 @@ a {
   text-decoration: underline;
 }
 
+.canon-memory-panel {
+  max-width: 860px;
+  border-top: 1px solid #a2a9b1;
+  margin-top: 34px;
+  padding-top: 14px;
+}
+
+.canon-memory-panel summary {
+  align-items: center;
+  color: var(--accent-strong);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 10px;
+  list-style: none;
+  min-height: 34px;
+}
+
+.canon-memory-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.canon-memory-body {
+  display: grid;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.canon-memory-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .article-body {
   position: relative;
 }
@@ -1300,7 +1333,7 @@ h3 {
 }
 
 .local-browser-shell {
-  align-content: start;
+  align-content: center;
 }
 
 .local-world-switcher {

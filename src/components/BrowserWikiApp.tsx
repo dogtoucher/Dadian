@@ -1,10 +1,14 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { BrowserSaveManager } from "@/components/BrowserSaveManager";
 import { LocalWikiMarkdown } from "@/components/LocalWikiMarkdown";
 import { ProviderSettings } from "@/components/ProviderSettings";
 import { createBrowserProvider } from "@/lib/llm/browserProvider";
 import { buildInitialWorldPrompt } from "@/lib/prompts/createWorld";
-import { generateArticlePrompt } from "@/lib/prompts/generateArticle";
+import {
+  extractValidateAndCommitCanon,
+  generateBrowserArticle,
+  type BrowserPipelineStageUpdate
+} from "@/lib/pipeline/browserPipeline";
 import {
   DadianIndexedDb,
   DexieWikiCanonStorageAdapter
@@ -13,9 +17,9 @@ import {
   cleanMetaNarration,
   extractWikiLinks,
   nowIso,
-  summarizeMarkdown,
   titleToSlug
 } from "@/lib/wiki";
+import type { Fact, GenerationRun } from "@/lib/storage/types";
 import type { Article, World } from "@/lib/wiki/titles";
 
 type LocalArticlePayload =
@@ -26,6 +30,11 @@ type LocalArticlePayload =
 type AppRoute =
   | { name: "home" }
   | { name: "article"; worldId: string; slug: string };
+
+type CanonMemory = {
+  facts: Fact[];
+  runs: GenerationRun[];
+};
 
 const DEFAULT_WORLDS = [
   {
@@ -55,6 +64,12 @@ export function BrowserWikiApp() {
   const [entryTitle, setEntryTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [stage, setStage] = useState<BrowserPipelineStageUpdate | null>(null);
+  const [providerPanelSignal, setProviderPanelSignal] = useState(0);
+  const [exampleMessage, setExampleMessage] = useState("");
+  const [canonMemory, setCanonMemory] = useState<CanonMemory | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const entryTitleRef = useRef<HTMLInputElement | null>(null);
 
   async function refreshWorlds() {
     const nextWorlds = await storage.listWorlds();
@@ -75,6 +90,7 @@ export function BrowserWikiApp() {
     async function loadRoute() {
       if (route.name === "home") {
         setPayload({ status: "empty" });
+        setCanonMemory(null);
         return;
       }
 
@@ -89,6 +105,15 @@ export function BrowserWikiApp() {
 
     void loadRoute();
   }, [database, route]);
+
+  useEffect(() => {
+    if (payload.status !== "ready") {
+      setCanonMemory(null);
+      return;
+    }
+
+    void refreshCanonMemory(payload.article);
+  }, [payload]);
 
   function goHome() {
     window.location.hash = "#/";
@@ -132,9 +157,39 @@ export function BrowserWikiApp() {
     });
   }
 
+  async function refreshCanonMemory(article: Article) {
+    const [facts, runs] = await Promise.all([
+      database.facts
+        .where("sourceArticleId")
+        .equals(article.id)
+        .reverse()
+        .sortBy("updatedAt"),
+      database.generationRuns
+        .where("articleId")
+        .equals(article.id)
+        .reverse()
+        .sortBy("createdAt")
+    ]);
+    setCanonMemory({
+      facts: facts.reverse(),
+      runs: runs.reverse().slice(0, 4)
+    });
+  }
+
+  async function updateFactStatus(fact: Fact, status: Fact["status"]) {
+    await database.facts.update(fact.id, {
+      status,
+      updatedAt: nowIso()
+    });
+    if (payload.status === "ready") {
+      await refreshCanonMemory(payload.article);
+    }
+  }
+
   async function createWorld(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
+    setStage(null);
     setLoading(true);
 
     try {
@@ -147,9 +202,11 @@ export function BrowserWikiApp() {
 
       const provider = createBrowserProvider();
       if (!provider) {
-        throw new Error("请先在“连接模型”中保存 API Key。");
+        setProviderPanelSignal((value) => value + 1);
+        throw new Error("请先连接模型并保存 API Key。");
       }
 
+      setStage({ stage: "article_generation", label: "正在生成入口词条..." });
       const content = await provider.complete({
         messages: buildInitialWorldPrompt(seed.trim(), entryTitle.trim()) as {
           role: "system" | "user" | "assistant";
@@ -190,6 +247,13 @@ export function BrowserWikiApp() {
         await database.worlds.put(world);
         await database.articles.put(article);
       });
+      await extractValidateAndCommitCanon({
+        database,
+        provider,
+        world,
+        article,
+        onStage: setStage
+      });
 
       setSeed("");
       setEntryTitle("");
@@ -199,60 +263,37 @@ export function BrowserWikiApp() {
       setError(err instanceof Error ? err.message : "查询失败。");
     } finally {
       setLoading(false);
+      setStage(null);
     }
   }
 
   async function generateMissingArticle() {
     if (payload.status !== "missing") return;
     setError("");
+    setStage(null);
     setLoading(true);
 
     try {
       const provider = createBrowserProvider();
       if (!provider) {
-        throw new Error("请先在“连接模型”中保存 API Key。");
+        setProviderPanelSignal((value) => value + 1);
+        throw new Error("请先连接模型并保存 API Key。");
       }
 
-      const relatedArticles = await database.articles
-        .where("worldId")
-        .equals(payload.world.id)
-        .filter((article) => article.status === "ready")
-        .reverse()
-        .limit(8)
-        .toArray();
-      const output = await provider.complete({
-        messages: generateArticlePrompt.build({
-          world: payload.world,
-          title: payload.title,
-          relatedArticles: relatedArticles.map((article) => ({
-            title: article.title,
-            summary: article.summary
-          }))
-        })
-      });
-      const timestamp = nowIso();
-      const markdown = cleanMetaNarration(output.content, payload.world.title);
-      const article: Article = {
-        id: crypto.randomUUID(),
-        worldId: payload.world.id,
-        slug: payload.slug,
+      const article = await generateBrowserArticle({
+        database,
+        provider,
+        world: payload.world,
         title: payload.title,
-        status: "ready",
-        summary: summarizeMarkdown(markdown),
-        markdown,
-        linksJson: JSON.stringify(extractWikiLinks(markdown)),
-        version: 1,
-        locale: payload.world.defaultLocale ?? "zh-CN",
-        createdAt: timestamp,
-        updatedAt: timestamp
-      };
-
-      await database.articles.put(article);
+        slug: payload.slug,
+        onStage: setStage
+      });
       navigateToArticle(payload.world.id, article.slug);
     } catch (err) {
       setError(err instanceof Error ? err.message : "生成失败。");
     } finally {
       setLoading(false);
+      setStage(null);
     }
   }
 
@@ -285,6 +326,10 @@ export function BrowserWikiApp() {
                   worldTitle={payload.world.title}
                 />
               </div>
+              <CanonMemoryPanel
+                memory={canonMemory}
+                onUpdateFactStatus={updateFactStatus}
+              />
             </article>
           ) : null}
 
@@ -301,8 +346,9 @@ export function BrowserWikiApp() {
                 onClick={generateMissingArticle}
                 type="button"
               >
-                {loading ? "正在整理..." : "整理这个词条"}
+                {loading ? stage?.label ?? "正在整理..." : "整理这个词条"}
               </button>
+              {stage ? <p className="settings-note">{stage.label}</p> : null}
               {error ? <p className="error-text">{error}</p> : null}
             </article>
           ) : null}
@@ -325,7 +371,7 @@ export function BrowserWikiApp() {
   }
 
   return (
-    <main className="home local-browser-shell" id="main-content">
+    <main className="home home-portal local-browser-shell" id="main-content">
       <header className="home-header home-portal-header">
         <div>
           <h1 className="brand">大典</h1>
@@ -334,7 +380,7 @@ export function BrowserWikiApp() {
           </p>
         </div>
         <div className="home-utilitybar" aria-label="本地工具">
-          <ProviderSettings />
+          <ProviderSettings openSignal={providerPanelSignal} />
           <BrowserSaveManager storage={storage} onImported={refreshWorlds} />
         </div>
       </header>
@@ -343,30 +389,16 @@ export function BrowserWikiApp() {
         <div className="section-heading home-form-heading">
           <h2 id="browser-start-world">查询一个世界</h2>
         </div>
-        <form className="seed-form" onSubmit={createWorld}>
-          <div className="preset-worlds" aria-label="默认世界">
-            {DEFAULT_WORLDS.map((world) => (
-              <button
-                className="preset-world-button"
-                key={world.title}
-                onClick={() => {
-                  setSeed(world.seed);
-                  setEntryTitle(world.entryTitle);
-                  setError("");
-                }}
-                type="button"
-              >
-                <strong>{world.title}</strong>
-                <span>{world.entryTitle}</span>
-              </button>
-            ))}
-          </div>
+        <form className="seed-form" onSubmit={createWorld} ref={formRef}>
           <label className="field">
             <span>世界设定</span>
             <textarea
               className="seed-input"
               minLength={12}
-              onChange={(event) => setSeed(event.target.value)}
+              onChange={(event) => {
+                setSeed(event.target.value);
+                setExampleMessage("");
+              }}
               placeholder="写下这个世界的时代、背景、核心冲突、社会规则或故事气质。"
               required
               value={seed}
@@ -376,34 +408,74 @@ export function BrowserWikiApp() {
             <span>入口词条</span>
             <input
               className="title-input"
+              ref={entryTitleRef}
               maxLength={40}
               minLength={2}
-              onChange={(event) => setEntryTitle(event.target.value)}
+              onChange={(event) => {
+                setEntryTitle(event.target.value);
+                setExampleMessage("");
+              }}
               placeholder="例如：永乐大典、高堡奇人、公共记忆网络"
               required
               value={entryTitle}
             />
           </label>
           <button className="primary-button" disabled={loading} type="submit">
-            {loading ? "正在生成..." : "生成入口词条"}
+            {loading ? stage?.label ?? "正在生成..." : "生成入口词条"}
           </button>
+          {exampleMessage ? <p className="settings-note">{exampleMessage}</p> : null}
+          {stage ? <p className="settings-note">{stage.label}</p> : null}
           {error ? <p className="error-text">{error}</p> : null}
         </form>
       </section>
 
-      {worlds.length ? (
-        <section className="home-panel local-world-switcher" aria-label="本地世界">
-          {worlds.map((world) => (
-            <button
-              className="secondary-button"
-              key={world.id}
-              onClick={() => openWorld(world)}
-              type="button"
-            >
-              {world.title}
-            </button>
-          ))}
+      <details className="archive-disclosure">
+        <summary>示例世界</summary>
+        <section className="archive-panel" aria-label="示例世界">
+          <div className="preset-worlds">
+            {DEFAULT_WORLDS.map((world) => (
+              <button
+                className="preset-world-button"
+                key={world.title}
+                onClick={() => {
+                  setSeed(world.seed);
+                  setEntryTitle(world.entryTitle);
+                  setError("");
+                  setExampleMessage(`已填入「${world.title}」示例，可继续修改后生成。`);
+                  window.setTimeout(() => {
+                    formRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center"
+                    });
+                    entryTitleRef.current?.focus();
+                  }, 0);
+                }}
+                type="button"
+              >
+                <strong>{world.title}</strong>
+                <span>填入「{world.entryTitle}」作为入口词条</span>
+              </button>
+            ))}
+          </div>
         </section>
+      </details>
+
+      {worlds.length ? (
+        <details className="archive-disclosure">
+          <summary>追溯已有世界</summary>
+          <section className="archive-panel local-world-switcher" aria-label="本地世界">
+            {worlds.map((world) => (
+              <button
+                className="secondary-button"
+                key={world.id}
+                onClick={() => openWorld(world)}
+                type="button"
+              >
+                {world.title}
+              </button>
+            ))}
+          </section>
+        </details>
       ) : null}
     </main>
   );
@@ -446,4 +518,125 @@ function parseInitialWorld(text: string) {
     throw new Error("模型输出缺少必要字段。");
   }
   return parsed;
+}
+
+function CanonMemoryPanel({
+  memory,
+  onUpdateFactStatus
+}: {
+  memory: CanonMemory | null;
+  onUpdateFactStatus: (fact: Fact, status: Fact["status"]) => Promise<void>;
+}) {
+  if (!memory) {
+    return null;
+  }
+
+  const pendingCount = memory.facts.filter(
+    (fact) => fact.status === "provisional" || fact.status === "disputed"
+  ).length;
+
+  return (
+    <details className="canon-memory-panel">
+      <summary>
+        <span>设定记忆</span>
+        <span className="settings-summary-status">
+          {memory.facts.length
+            ? `${memory.facts.length} 条事实，${pendingCount} 条待确认`
+            : "暂无事实"}
+        </span>
+      </summary>
+      <div className="canon-memory-body">
+        <section>
+          <h3>待确认设定</h3>
+          {!memory.facts.length ? (
+            <p className="empty-hint">这个词条暂时没有抽取到可审核的设定。</p>
+          ) : (
+            <ul className="canon-memory-list">
+              {memory.facts.map((fact) => (
+                <li className={`fact-item fact-${fact.status}`} key={fact.id}>
+                  <div className="fact-text">{fact.factText}</div>
+                  <div className="fact-meta">
+                    {statusBadge(fact.status)}
+                    <span className="fact-certainty">
+                      确定度: {Math.round(fact.certainty * 100)}%
+                    </span>
+                  </div>
+                  <div className="fact-actions">
+                    {fact.status !== "accepted" && fact.status !== "canonical" ? (
+                      <button
+                        className="mini-button accept"
+                        onClick={() => onUpdateFactStatus(fact, "accepted")}
+                        type="button"
+                      >
+                        确认
+                      </button>
+                    ) : null}
+                    {fact.status !== "canonical" ? (
+                      <button
+                        className="mini-button canonicalize"
+                        onClick={() => onUpdateFactStatus(fact, "canonical")}
+                        type="button"
+                      >
+                        锁定正典
+                      </button>
+                    ) : null}
+                    {fact.status !== "disputed" && fact.status !== "rejected" ? (
+                      <button
+                        className="mini-button dispute"
+                        onClick={() => onUpdateFactStatus(fact, "disputed")}
+                        type="button"
+                      >
+                        标记争议
+                      </button>
+                    ) : null}
+                    {fact.status !== "rejected" ? (
+                      <button
+                        className="mini-button reject"
+                        onClick={() => onUpdateFactStatus(fact, "rejected")}
+                        type="button"
+                      >
+                        拒绝
+                      </button>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section>
+          <h3>整理记录</h3>
+          {!memory.runs.length ? (
+            <p className="empty-hint">暂无整理记录。</p>
+          ) : (
+            <ul className="activity-list">
+              {memory.runs.map((run) => (
+                <li key={run.id}>
+                  <div>
+                    <strong>{run.targetTitle}</strong>
+                    <span>
+                      {run.model ?? "unknown model"} · {run.status}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
+    </details>
+  );
+}
+
+function statusBadge(status: Fact["status"]) {
+  const labels: Record<Fact["status"], string> = {
+    provisional: "待审核",
+    accepted: "已确认",
+    canonical: "正典",
+    disputed: "争议中",
+    rejected: "已拒绝",
+    deprecated: "已废弃"
+  };
+  return <span className={`badge badge-${status}`}>{labels[status]}</span>;
 }

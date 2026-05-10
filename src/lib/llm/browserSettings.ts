@@ -8,17 +8,70 @@ export type BrowserProviderSettings = {
   hasApiKey: boolean;
 };
 
+export type BrowserProviderPresetId = "openai" | "deepseek" | "openrouter" | "custom";
+
+export type BrowserProviderPreset = {
+  id: BrowserProviderPresetId;
+  label: string;
+  baseUrl: string;
+  model: string;
+  note: string;
+};
+
 const SETTINGS_KEY = "dadian.providerSettings";
 const SESSION_API_KEY = "dadian.providerApiKey.session";
 const LOCAL_API_KEY = "dadian.providerApiKey.local";
 
+export const BROWSER_PROVIDER_PRESETS: BrowserProviderPreset[] = [
+  {
+    id: "openai",
+    label: "OpenAI",
+    baseUrl: "https://api.openai.com/v1",
+    model: "gpt-5.4-mini",
+    note: "适合高频生成的最新 mini 默认项。"
+  },
+  {
+    id: "deepseek",
+    label: "DeepSeek",
+    baseUrl: "https://api.deepseek.com",
+    model: "deepseek-v4-flash",
+    note: "适合高频生成的最新 flash 默认项。"
+  },
+  {
+    id: "openrouter",
+    label: "OpenRouter",
+    baseUrl: "https://openrouter.ai/api/v1",
+    model: "openai/gpt-5.4-mini",
+    note: "通过 OpenRouter 使用 OpenAI GPT-5.4 mini。"
+  },
+  {
+    id: "custom",
+    label: "自定义",
+    baseUrl: "",
+    model: "",
+    note: "用于 LM Studio、代理服务或其他 OpenAI-compatible 端点。"
+  }
+];
+
 export const DEFAULT_BROWSER_PROVIDER_SETTINGS: BrowserProviderSettings = {
   providerType: "openai-compatible",
-  baseUrl: "https://api.openai.com/v1",
-  model: "gpt-4.1-mini",
+  baseUrl: BROWSER_PROVIDER_PRESETS[0].baseUrl,
+  model: BROWSER_PROVIDER_PRESETS[0].model,
   apiKeyStorageMode: "session",
   hasApiKey: false
 };
+
+export function detectBrowserProviderPreset(
+  settings: Pick<BrowserProviderSettings, "baseUrl" | "model">
+): BrowserProviderPresetId {
+  const match = BROWSER_PROVIDER_PRESETS.find(
+    (preset) =>
+      preset.id !== "custom" &&
+      preset.baseUrl === settings.baseUrl &&
+      preset.model === settings.model
+  );
+  return match?.id ?? "custom";
+}
 
 export function loadBrowserProviderSettings(
   storage: Pick<Storage, "getItem"> = localStorage,

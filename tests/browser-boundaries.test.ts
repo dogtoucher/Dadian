@@ -10,7 +10,10 @@ import type {
   WikiCanonStorageAdapter
 } from "../src/lib/storage/types.ts";
 import {
+  BROWSER_PROVIDER_PRESETS,
+  DEFAULT_BROWSER_PROVIDER_SETTINGS,
   clearBrowserProviderApiKey,
+  detectBrowserProviderPreset,
   loadBrowserProviderConfig,
   loadBrowserProviderSettings,
   saveBrowserProviderSettings
@@ -173,6 +176,26 @@ test("browser provider settings keep API keys out of provider metadata", () => {
 
   clearBrowserProviderApiKey(local, session);
   assert.equal(loadBrowserProviderSettings(local, session).hasApiKey, false);
+});
+
+test("browser provider defaults use current high-volume model presets", () => {
+  assert.equal(DEFAULT_BROWSER_PROVIDER_SETTINGS.model, "gpt-5.4-mini");
+  assert.deepEqual(
+    BROWSER_PROVIDER_PRESETS.map((preset) => [preset.id, preset.baseUrl, preset.model]),
+    [
+      ["openai", "https://api.openai.com/v1", "gpt-5.4-mini"],
+      ["deepseek", "https://api.deepseek.com", "deepseek-v4-flash"],
+      ["openrouter", "https://openrouter.ai/api/v1", "openai/gpt-5.4-mini"],
+      ["custom", "", ""]
+    ]
+  );
+  assert.equal(
+    detectBrowserProviderPreset({
+      baseUrl: "https://api.deepseek.com",
+      model: "deepseek-v4-flash"
+    }),
+    "deepseek"
+  );
 });
 
 test("provider error redaction removes bearer and sk-style secrets", () => {
